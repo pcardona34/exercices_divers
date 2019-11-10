@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="generator" content="MatchMix by Luc De Droogh http://www.ldd-soft.be" />
+<meta http-equiv="Content-Language" content="fr" />
+<title>Approfondissement : valeurs des temps du récit</title>
+<style type="text/css">
+/*<![CDATA[*/
+body {background:#FFFFFF;color:#000000;font:normal 12pt 'Arial';}
+div.titre {font:normal 16pt 'Arial';color:#000000;font-style:normal;text-align:left;}
+div.nomdate {font:normal 10pt 'Arial';color:#000000;text-align:left;}
+div.questions {margin-left:auto;margin-right:auto;width:80%;}
+div.btn_lire {width:100%;text-align:center;}table.tableau {margin-left:auto;margin-right:auto;width:800px;border:solid 2px #000000;border-bottom:solid 5px #000000;}
+caption {background:#FFFFFF;border:solid 1px #000000;text-align:left;padding:5px;}
+td.vide {border-bottom:solid 5px #000000;text-align:center;}
+td.gauche {width:380px;background:#FFFFCC;color:#000000;font-weight:bold;font-size:12pt;padding-top:5px;padding-bottom:5px;padding-left:5px;cursor:pointer;border-right:solid 10px blue;}
+td.gauche:hover {background:#FFFF00;color:#FFFFFF;border-color:white;}
+td.droite {width:380px;background:#CACACA;color:#000000;font-weight:bold;font-size:12pt;padding-top:5px;padding-bottom:5px;padding-left:5px;cursor:pointer;border-left:solid 10px orange;}
+td.droite:hover {background:#FFFF00;color:#FFFFFF;border-color:#EAE777;}
+div.feedback {position:fixed;top:30%;left:20%;width:60%;display:none;}
+div.message {margin-left:auto;margin-right:auto;width:50%;border:solid 5px white;padding:5px;display:none;font:bold 11pt arial;}
+div.copyright {margin-left:auto;margin-right:auto;width:50%;text-align:center;color:#000000;font:normal 9pt arial;}
+a:link {color:#000000;text-decoration:underline;font-weight:bold;}
+a:hover {color:#FFFF00;text-decoration:none;background:#000000;}
+/*]]>*/
+</style>
+<script type="text/javascript">
+//<![CDATA[
+// initialisation
+var texteplus="<h1>Texte inspir&eacute; de \"Jeannot et Colin de Voltaire\"</h1><br /><span style=\"font-size: medium;\">Jeannot et Colin &eacute;taient amis d'enfance. Ils &eacute;taient fort jolis pour des Auvergnats.<br />Jeannot &eacute;tait fils d'un marchand de mulets tr&egrave;s renomm&eacute;.<br />Un jour, un tailleur apporta &agrave; Jeannot un habit de velours.<br />Quelque temps apr&egrave;s, un valet de chambre arrive en poste.<br />Il portait un billet de monsieur Jeannot le p&egrave;re.<br />C'&eacute;tait un ordre de Monsieur son p&egrave;re de faire venir Monsieur son fils &agrave; Paris.&nbsp;&nbsp; &nbsp;<br />Car monsieur Jeannot &eacute;tait devenu fort riche.<br />Vous demandez comment on fait ces grandes fortunes ? C'est parce qu'on est heureux.<br /></span><br />";
+
+function liretexte(){
+var w="";w=open("","popup","width=600,height=500,toolbar=no,scrollbars=yes,resizable=yes");
+w.document.write(texteplus);
+w.document.write("<hr /><input type=\"button\" value=\"Fermer\" onclick=\"window.close();\">");
+w.document.close();
+}
+var rep= new Array();
+// les bonnes associations
+rep[0]="g0d3";
+rep[1]="g1d5";
+rep[2]="g2d1";
+rep[3]="g3d4";
+rep[4]="g4d0";
+rep[5]="g5d2";
+var elg=""; //id de l'élément de gauche
+var eld=""; //id de l'élément de droite
+var i=0;
+var c=0; //numéro de l'élément de droite après le "d"
+var clics=0; //compteur de clics
+var reponse=""; //assemblage de l'id de gauche et de l'id de droite (par exemple g0d5) pour pouvoir comparer avec rep[]
+var msg=""; //message envoyé après une réponse
+function gauche(donneeg){
+elg = donneeg;
+// si l'élément de gauche est invisible et qu'on clique dessus ==> retour
+if (document.getElementById(elg).innerHTML == "&nbsp;") {return;}
+// alerte si on n'a pas commencé par la droite
+if (eld == "") {alert("Sélectionnez d'abord un élément à droite !");return;}
+if(eld!="" && elg!="") {
+clics++; //on comptabilise les clics à gauche
+reponse= elg+eld;
+for (i=0;i<rep.length;i++) {
+// BONNE REPONSE
+if (reponse == rep[i]) {
+// affichage du messge
+document.getElementById('feedback').style.display="block";
+document.getElementById('message').style.display="block";
+document.getElementById('message').style.backgroundColor="#80FF80";
+document.getElementById('message').style.color="#CA4200";
+document.getElementById('message').style.textAlign="center";
+msg = "<br />Bonne réponse !<br /><br />"+ document.getElementById(eld).innerHTML + "<br /><br /><i>est en effet associé à<\/i><br /><br />" + document.getElementById(elg).innerHTML + "";
+document.getElementById('message').innerHTML = msg+"<hr /><input type=\"button\" value=\"&nbsp;OK&nbsp;\" onclick=\"document.getElementById('feedback').style.display='none'\" />";
+// effacement de l'élément de gauche et de droite, si la réponse est bonne
+document.getElementById(elg).style.backgroundColor="transparent";
+document.getElementById(eld).style.backgroundColor="transparent";
+document.getElementById(elg).style.border="none";
+document.getElementById(eld).style.border="none";
+document.getElementById(elg).innerHTML="&nbsp;";
+document.getElementById(eld).innerHTML="&nbsp;";
+// réinitialisation des variables
+reponse="";eld="";elg="";
+fini();
+return;
+}
+}
+// MAUVAISE REPONSE
+// si la réponse est mauvaise, on affiche un message et on repeint le div
+document.getElementById('feedback').style.display="block";
+document.getElementById('message').style.display="block";
+document.getElementById('message').style.backgroundColor="Red";
+document.getElementById('message').style.color="White";
+document.getElementById('message').style.textAlign="center";
+document.getElementById('message').innerHTML="Désolé, mauvaise réponse ! Réessayez !<hr /><input type=\"button\" value=\"&nbsp;OK&nbsp;\" onclick=\"document.getElementById('feedback').style.display='none'\" />";
+}
+document.getElementById(eld).style.backgroundColor="#FFA8D3"; // couleur après un clic et mauvaise réponse
+document.getElementById(eld).style.borderColor="Red"; // couleur du bord après mauvaise réponse
+reponse="";eld="";elg="";
+return;
+}
+function droite(donneed){
+eld = donneed;
+if (document.getElementById(eld).innerHTML=="&nbsp;") {return;} // retour si l'élément est invisible ( = déjà bien répondu)
+// effacement du message, s'il y en a un
+document.getElementById('message').innerHTML="&nbsp;";
+document.getElementById('message').style.display="none";
+// changer la couleur de fond et du bord, si l'élément a été cliqué
+document.getElementById(eld).style.backgroundColor="#CCCC99";
+document.getElementById(eld).style.borderColor="#EAE777";
+}
+function fini() {
+// teste si on a fait toutes les associations
+var repondu=0;
+for (i=0;i<rep.length;i++) {
+if (document.getElementById("g"+i).innerHTML=="&nbsp;") {repondu++;}
+}
+if (repondu == rep.length) {fin();return;}
+else return;
+}
+function fin() {
+// effacement du message, s'il y en a un
+document.getElementById('feedback').style.display="block";
+document.getElementById('message').style.display="block";
+document.getElementById('message').style.backgroundColor="White";
+// calcul du résultat
+var diff = clics - rep.length;
+document.getElementById('message').innerHTML="L'EXERCICE est FINI !!<br /><hr /><input type=\"button\" value=\"&nbsp;OK&nbsp;\" onclick=\"document.getElementById('feedback').style.display='none'\" />&nbsp;<input type=\"button\" value=\"&nbsp;Recommencer&nbsp;\" onclick=\"document.getElementById('feedback').style.display='none';location.reload();\" />";
+}
+//]]>
+</script>
+</head>
+<body>
+<div id="titre" class="titre">
+Approfondissement : valeurs des temps du récit
+</div>
+<div id="nomdate" class="nomdate">
+Auteur : Patrick Cardona</div><br />
+<div id="questions" class="questions">
+<div class="btn_lire"><input type="button" value="Lire le texte" onclick="liretexte();" /></div>
+<table id="tableau" class="tableau" summary="questionnaire" border="0" cellpadding="0" cellspacing="10">
+<caption>
+Faites correspondre chaque exemple &agrave; la valeur de temps employ&eacute;e.<br />
+</caption>
+<tr>
+<td colspan="2" class="vide">
+</td>
+</tr>
+<tr>
+<td id="g0" class="gauche" onclick="gauche(id);">Quelque temps après, un valet de chambre arrive en poste.</td>
+<td id="d0" class="droite" onclick="droite(id);">Présent d'énonciation : commentaire du narrateur.</td>
+</tr>
+<tr>
+<td id="g1" class="gauche" onclick="gauche(id);">Jeannot était fils d'un marchand de mulets très renommé.</td>
+<td id="d1" class="droite" onclick="droite(id);">Passé simple : premier plan du récit</td>
+</tr>
+<tr>
+<td id="g2" class="gauche" onclick="gauche(id);">Un tailleur apporta à Jeannot un habit de velours.</td>
+<td id="d2" class="droite" onclick="droite(id);">Imparfait : une explication.</td>
+</tr>
+<tr>
+<td id="g3" class="gauche" onclick="gauche(id);">Jeannot et Colin étaient fort jolis pour des Auvergnats.</td>
+<td id="d3" class="droite" onclick="droite(id);">Présent de narration</td>
+</tr>
+<tr>
+<td id="g4" class="gauche" onclick="gauche(id);">Vous demandez comment on fait ces grandes fortunes ? C'est parce qu'on est heureux.</td>
+<td id="d4" class="droite" onclick="droite(id);">Imparfait de description.</td>
+</tr>
+<tr>
+<td id="g5" class="gauche" onclick="gauche(id);">C'était un ordre de Monsieur son père de faire venir Monsieur son fils à Paris.</td>
+<td id="d5" class="droite" onclick="droite(id);">Imparfait : second plan du récit, situation initiale.</td>
+</tr>
+</table>
+</div>
+<br />
+<div id="copyright" class="copyright">
+Generated by <a href="http://www.ldd-soft.be/MatchMix-Generateur.php" target="_blank">MatchMiX v.1.0</a> | Valid XHTML 1.0 | Valid CSS 2.1
+</div>
+<div id='feedback' class='feedback'>
+<div id='message' class='message'></div>
+</div>
+</body>
+</html>
