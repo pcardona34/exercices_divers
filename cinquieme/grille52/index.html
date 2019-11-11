@@ -1,0 +1,94 @@
+<html xmlns = "http://www.w3.org/1999/xhtml" xml:lang = "en" lang = "en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Crossword</title>
+	 
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />  
+	
+	<script type="text/javascript" src="js/jslib.js"></script>
+	<script type="text/javascript" src="js/data.nocache.js"></script>
+	<script type="text/javascript" src="js/crossword.min.js"></script>
+ 	<style>body, html { overflow: hidden; margin: 0; padding: 0; }</style>
+	
+</head>
+<body>
+	
+	<noscript>
+		<style> #container {display :none;} </style>
+	 <h1 style="text-align:center;">Please enable Javascript </h1></noscript>
+	<div id="container">
+	
+	<div id="wbank" class="ui-layout-east"> 
+		<div id="across-header" class="header"></div>
+		<div class="word-list" id="across-clues">   </div>
+		<div id="down-header" class="header"></div>
+		<div class="word-list" id="down-clues"> </div>
+		
+		</div>
+	<div id="main" class="ui-layout-center"> 
+		<div id="toolbar" class="section">
+			<div id="timer"></div>
+			<table class="buttonbar">
+			<tr>
+			<td class="button" id="check" onclick="onverifysol();">Check my answers </td>
+			<td class="button" onclick="solve_puzzle();" id="solve">Solve </td>
+			<td class="button" onclick="flash_hint();" id="hint">Hint </td>
+		
+			</tr></table>
+			
+			 </div>
+			<div id="heading" class="section"></div>
+			
+		<div id="mcenter" class="section"> 
+			<div id="iepage"></div>
+			<div id="centerpoint">
+			    <div id="instructions" onclick="$('#centerpoint').hide();">
+			    	<h4 style="text-align:center;">Instructions</h4>
+			    	<div id="instr-body"></div>
+					<div id="instr-close">Close</div>
+				</div>
+			</div>
+			<canvas id="canvas" width=600 height=600>
+				
+			</canvas>
+		 	<input type="text" id="editor" />
+			</div>
+		 
+			
+	</div> </div>
+	
+	<div id="snotify">
+
+	     <div id="basic-template">
+	        <a class="ui-notify-cross ui-notify-close">X</a>
+	        <h1 id="notify-title">#{title}</h1>
+	        <p style="padding:10px;">#{text} &nbsp;&nbsp;<a href="javascript:location.reload(true);">Play again</a></p>
+
+	    </div>
+
+
+	    <div id="advanced-template"></div>
+
+	</div>
+	
+	<div id="fnotify">
+
+	     <div id="basic-template">
+	        <a class="ui-notify-cross ui-notify-close">X</a>
+	        <h1 style="color:#EE0000;">#{title}</h1>
+	        <p style="padding:10px;">#{text} &nbsp;&nbsp;</p>
+
+	    </div>
+
+
+	    <div id="advanced-template"></div>
+
+	</div>
+ 	
+	
+ 
+
+
+</body>
+</html>
