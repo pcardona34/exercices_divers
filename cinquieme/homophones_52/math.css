@@ -1,0 +1,29 @@
+.vec {
+	line-height: 25px;
+	background-image: url(fleche.svg);
+	background-repeat: no-repeat;
+	background-position: top right;
+	padding-top: 5px;
+}
+.alg {
+	line-height: 25px;
+	background-image: url(fleche.svg);
+	background-repeat: no-repeat;
+	background-position: top left;
+	padding-top: 5px;
+}
+.frac {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+}
+.num {
+	display: block;
+	padding-bottom: 4px;
+	border-bottom: 1px solid;
+}
+.den {
+	display: block;
+	padding-top: 5px;
+}
+
