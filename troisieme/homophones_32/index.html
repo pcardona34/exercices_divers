@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+Cet exercice interactif est crée avec Dyris - http://dyris.free.fr/
+-->
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Dyris</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="math.css">
+</head>
+
+<body>
+<div id="page"><div class="message">Chargement en cours...<br><br>
+<img src="chargt.gif"><br><br>Veuillez patienter.</div></div>
+<script>
+$=function(id) { return document.getElementById(id); };
+if (!String.prototype.trim) {
+	String.prototype.trim=function() { return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, ''); };
+}
+String.prototype.hasard=function() {
+	var ch=this, txt=ch.split("||"), nb=Math.floor(txt.length*Math.random());
+	return txt[nb];
+};
+String.prototype.traiter=function() {
+	var ch=this;
+	ch=ch.replace(/<vec>/g, "<span class='vec'>");
+	ch=ch.replace(/<\/vec>/g, "</span>");
+	ch=ch.replace(/<alg>/g, "<span class='alg'>");
+	ch=ch.replace(/<\/alg>/g, "</span>");
+	ch=ch.replace(/<frac>/g, "<span class='frac'>");
+	ch=ch.replace(/<\/frac>/g, "</span>");
+	ch=ch.replace(/<num>/g, "<span class='num'>");
+	ch=ch.replace(/<\/num>/g, "</span>");
+	ch=ch.replace(/<den>/g, "<span class='den'>");
+	ch=ch.replace(/<\/den>/g, "</span>");
+	return ch;
+};
+window.onload=function() { ecrire_page1(); };
+window.onkeydown=function(event) {
+	if(event.keyCode=="13") {
+		event.preventDefault(); // Annule l'effet par défaut associé à cette touche
+		if (cont.num_page=="1") p1_commencer();
+		else {
+			if (cont.num_page=="2") p2_verifier();
+			else if (cont.num_page=="2bis") p2_suivant();
+		}
+	}
+};
+</script>
+<script src="modele.js"></script>
+<script src="vue.js"></script>
+<script src="controleur.js"></script>
+<script src="textes.js"></script>
+<script src="donnees.js"></script>
+<noscript>Pour utiliser cette application, activez l'option JavaScript de votre navigateur.</noscript>
+</body>
+
+</html>
+

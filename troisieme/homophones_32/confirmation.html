@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Scores</title>
+<link rel="stylesheet" href="style.css">
+<script>
+// Page affichée pour le mode évaluation 2
+ch=[];
+// Fonctions appelées par le fichier "textes.js"
+function titre() {}
+function bouton() {}
+function fenetre() {}
+function mot() {}
+function score(a) { ch[ch.length]=a; }
+onload=function() {
+	var txt='<div class="message">'+ch[7]+'</div>';
+	txt+='<div id="menu"><button type="button" onclick="self.close();">'+ch[5]+'</button></div>';
+	document.body.innerHTML=txt;
+};
+</script>
+<script src="textes.js"></script>
+</head>
+
+<body></body>
+
+</html>
+
