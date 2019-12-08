@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="generator" content="LiSMeL v.2.0 by Luc De Droogh http://www.ldd-soft.be" />
+<title>Homophones dans la dictée 53</title>
+<style type="text/css">
+/*<![CDATA[*/
+body{background:#FFFFFF;}
+#titre {width:80%;margin-left:auto;margin-right:auto;font:Normal 16pt Arial;color: #000000;background:#FFFFFF;font-style:Normal;text-align:left;padding:10px 20px;overflow:auto;}
+#auteur_date {font:normal 8pt arial;color:gray;}
+#consigne {width:80%;margin-left:auto;margin-right:auto;margin-top:3px;font:bold 12pt Arial;color:#000000;background:#FFFFFF;font-style:Italic;text-align:left;padding:10px 20px;overflow:auto;}
+#frm {width:80%;height:400px;overflow:auto;margin-left:auto;margin-right:auto;margin-top:3px;line-height:2.5;background:#FFFFFF;padding:20px;}
+#txt {width:90%;margin-left:auto;margin-right:auto;font:normal 12pt Arial;color:#000000;line-height:2.5;background:#FFFFFF;font-style:normal;padding:10px;overflow:auto;}
+.inp {background:#FFFFA1;font:normal 12pt Arial;color:#000000;text-align:center;}
+span.aide {font-size:80%;font-family:verdana;font-weight:bold;background:#ffff99;color:gray;vertical-align:super;cursor:pointer;border:1px solid gray;padding:0px 2px;}
+span.aide:hover {background:orange;color:white;}
+span.cm {font-size:80%;font-family:verdana;font-weight:bold;background:red;color:white;vertical-align:super;cursor:pointer;border:1px solid gray;padding:0px 2px;display:none;}
+span.cm:hover {background:white;color:red;}
+#indice {position:absolute;visibility:hidden;display:none;width:400px;height:150px;overflow:auto;font:normal 9pt Arial;color:#000000;font-style:normal;background:#FFFFFF;border:dotted 2px gray;padding:10px 20px;text-align:left;}
+#comment {position:absolute;visibility:hidden;display:none;width:400px;height:150px;overflow:auto;font:normal 9pt Arial;color:#000000;border:dotted 2px gray;font-style:normal;background:#FFFFFF;padding:10px 20px;text-align:left;}
+#score {position:absolute;visibility:hidden;display:none;width:400px;height:160px;overflow:auto;text-align:left;font:normal 12pt Arial;color:#000000;font-style:normal;background:#FFFFFF;padding:10px 20px;border:solid 2px gray;}
+.ok_btn {font:bold 9pt arial;color:gray;cursor:pointer;background:#cacaca;border:1px outset white;padding:2px;}
+.ok_btn:hover {background:#707070;border:2px inset white;color:white;}
+#commandes {width:80%;margin-left:auto;margin-right:auto;margin-top:3px;background:#FFFFFF;padding:10px 20px;text-align:center;}
+#creation {width:80%;margin-left:auto;margin-right:auto;margin-top:3px;font:normal 8pt arial;color:gray;text-align:center;background:transparent;padding:3px 20px;}
+a:link {color:gray;text-decoration:underline;font-weight:bold;}
+span.bnrep {font:bold 12pt arial;background:#AAFFD5;color:green;padding:0px 3px;}
+span.malrep {font:bold 12pt arial;background:#FF8080;color:yellow;padding:0px 3px;}
+/*]]>*/
+</style>
+<script type="text/javascript">
+//<![CDATA[
+// initialisation
+var largeur=0;var hauteur=0;var i=0;var entree="";var points=0;var score="";
+var rep= new Array();
+rep[0]="où";
+rep[1]="Regardez";
+rep[2]="Sept";
+rep[3]="comptez";
+rep[4]="et";
+rep[5]="ait";
+rep[6]="vingt";
+rep[7]="mètres";
+rep[8]="haut";
+rep[9]="De";
+rep[10]="murs";
+rep[11]="Et";
+rep[12]="sans";
+rep[13]="grincez";
+rep[14]="dents";
+rep[15]="à";
+rep[16]="pensée";
+rep[17]="reine";
+rep[18]="se";
+rep[19]="au";
+function centrer(){
+if (window.innerWidth) largeur=window.innerWidth;
+else if (document.documentElement && document.documentElement.clientWidth) largeur=document.documentElement.clientWidth;
+else if (document.body)	largeur=document.body.clientWidth;
+if (window.innerHeight)	hauteur=window.innerHeight;
+else if (document.documentElement && document.documentElement.clientHeight) hauteur=document.documentElement.clientHeight;
+else if (document.body) hauteur=document.body.clientHeight;
+}
+function corriger(){
+points=0;
+var d = document.getElementById("txt");
+for(i=0;i<rep.length;i++){
+entree = document.getElementById("t"+i);
+var rp = entree.value;
+if(rp.charAt(rp.length-1)==" ") {rp=rp.substr(0,rp.length-1);}
+if(rp==rep[i]){
+points++;
+var sp1 = document.createElement("span");
+var sp1_contenu = document.createTextNode(rep[i]);
+sp1.appendChild(sp1_contenu);
+sp1.setAttribute("class","bnrep");
+sp1.setAttribute("className","bnrep");
+var sp2 = document.getElementById("t"+i);
+var parentDiv = sp2.parentNode;
+parentDiv.insertBefore(sp1, sp2);
+d.removeChild(entree);
+}
+else{
+var sp1 = document.createElement("span");
+var sp1_contenu = document.createTextNode(rep[i]);
+sp1.appendChild(sp1_contenu);
+sp1.setAttribute("class","malrep");
+sp1.setAttribute("className","malrep");
+var sp2 = document.getElementById("t"+i);
+var parentDiv = sp2.parentNode;
+parentDiv.insertBefore(sp1, sp2);
+d.removeChild(entree);
+}
+}
+resultat();
+}
+function resultat(){
+centrer();
+var ic = document.getElementById("score");
+var l = (largeur-400)/2;
+var t = (hauteur-130)/2;
+ic.style.left = l+"px";
+ic.style.top = t+"px";
+ic.style.visibility="visible";
+ic.style.display="block";
+ic.innerHTML="<br /><br />Résultat : "+points+" sur "+rep.length+" !"
+if(points<rep.length) {
+ic.innerHTML+="<br \/><small><small>Les cases rouges contiennent les réponses attendues.<\/small><\/small><br \/>";
+}
+ic.innerHTML +="<br \/><hr \/><span class=\"ok_btn\" onclick=\"document.getElementById('score').style.visibility='hidden';document.getElementById('score').style.display='none';\";>OK<\/span>";
+}
+function recommencer(){document.location = document.location;}
+
+//]]>
+</script>
+</head>
+<body>
+<div id="titre">Homophones dans la dictée 53<br />
+<span id="auteur_date">
+Auteur : Patrick Cardona
+ ( 8/12/2019 )
+</span>
+</div>
+<div id="consigne">Choisissez la forme qui convient en déroulant la liste.</div>
+<div id="frm"><form id="txt" name="txt" action="">
+Voilà <select id="t0" class="inp"><option value="???" selected="selected">???</option><option value="où">où</option><option value="ou">ou</option></select> commencent les vraies difficultés. Voici le château du sorcier. <select id="t1" class="inp"><option value="???" selected="selected">???</option><option value="Regardez">Regardez</option><option value="Regardé">Regardé</option><option value="Regarder">Regarder</option></select>-le, surgissant d'un voile de brume comme un gigantesque monument funéraire. <select id="t2" class="inp"><option value="???" selected="selected">???</option><option value="Cette">Cette</option><option value="Set">Set</option><option value="Sept">Sept</option></select> tours — <select id="t3" class="inp"><option value="???" selected="selected">???</option><option value="comptez">comptez</option><option value="compté">compté</option><option value="conté">conté</option><option value="contez">contez</option><option value="conter">conter</option><option value="compter">compter</option></select>-les — <select id="t4" class="inp"><option value="???" selected="selected">???</option><option value="ait">ait</option><option value="et">et</option><option value="est">est</option></select> pas une qui <select id="t5" class="inp"><option value="???" selected="selected">???</option><option value="et">et</option><option value="ait">ait</option><option value="est">est</option></select> moins de <select id="t6" class="inp"><option value="???" selected="selected">???</option><option value="vint">vint</option><option value="vin">vin</option><option value="vain">vain</option><option value="vingt">vingt</option><option value="vins">vins</option></select> <select id="t7" class="inp"><option value="???" selected="selected">???</option><option value="mètres">mètres</option><option value="mettre">mettre</option><option value="maîtres">maîtres</option></select> de <select id="t8" class="inp"><option value="???" selected="selected">???</option><option value="aux">aux</option><option value="au">au</option><option value="haut">haut</option></select>. <select id="t9" class="inp"><option value="???" selected="selected">???</option><option value="Deux">Deux</option><option value="De">De</option></select> grands <select id="t10" class="inp"><option value="???" selected="selected">???</option><option value="murs">murs</option><option value="mûres">mûres</option><option value="mûrs">mûrs</option></select> de pierre, visqueux, ruisselants d'humidité.  <select id="t11" class="inp"><option value="???" selected="selected">???</option><option value="Ait">Ait</option><option value="Est">Est</option><option value="Et">Et</option></select> un sombre fossé aux eaux immobiles,  <select id="t12" class="inp"><option value="???" selected="selected">???</option><option value="cent">cent</option><option value="s'en">s'en</option><option value="sans">sans</option></select> doute grouillant des plus infâmes créatures imaginables. Avez-vous jamais vu un endroit aussi abominable ? Vous <select id="t13" class="inp"><option value="???" selected="selected">???</option><option value="grincez">grincez</option><option value="grincé">grincé</option><option value="grincer">grincer</option></select> des <select id="t14" class="inp"><option value="???" selected="selected">???</option><option value="dents">dents</option><option value="dans">dans</option></select> <select id="t15" class="inp"><option value="???" selected="selected">???</option><option value="a">a</option><option value="à">à</option></select> la <select id="t16" class="inp"><option value="???" selected="selected">???</option><option value="pensé">pensé</option><option value="pensée">pensée</option><option value="penser">penser</option></select> de la belle <select id="t17" class="inp"><option value="???" selected="selected">???</option><option value="renne">renne</option><option value="rêne">rêne</option><option value="reine">reine</option></select> qui <select id="t18" class="inp"><option value="???" selected="selected">???</option><option value="se">se</option><option value="ce">ce</option></select> languit <select id="t19" class="inp"><option value="???" selected="selected">???</option><option value="haut">haut</option><option value="aux">aux</option><option value="au">au</option></select> fond du donjon.
+</form></div>
+<div id="indice">.</div><div id="comment">.</div><div id="score">.</div>
+<div id="commandes">
+<input type="button" value="Corriger" onclick="corriger();" />
+<input type="button" value="Recommencer" onclick="recommencer();" />
+</div>
+<div id="creation">Generated by <b><a href="http://www.ldd-soft.be/" target="_blank">LiSMeL v.2.0</a></b> | Valid XHTML 1.0 | Valid CSS 2.1</div>
+</body>
+</html>
