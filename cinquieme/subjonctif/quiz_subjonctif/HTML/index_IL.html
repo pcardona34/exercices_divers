@@ -1,0 +1,140 @@
+<html>
+<head>
+	<title>Subjonctif - Exercice</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="../commun/jQuizMe.css"/>
+	<style type="text/css">
+	#quizArea{
+		width: 20em;
+		height: 40em;
+		margin: 2em;
+	}
+	</style>
+</head>
+<body>
+<h1 id="titre">Je m'exerce à conjuguer le présent du SUBJONCTIF… (1)</h1>
+<div id="quizArea">
+	<div id="quiz"></div>
+</div>
+<script src = "../commun/jquery-1.3.2.min.js"></script>
+<script src="../commun/jQuizMe-2.2.js"></script>
+<script src="../commun/frLang.js"></script>
+<script type="text/javascript">
+var quiz = {
+	"fill":[
+		{ 
+			ques: "ÊTRE :<br />Il faut qu'il ...",
+			ans: "soit"
+		},
+		{ 
+			ques: "AVOIR :<br />Il faut qu'il ...", 
+			ans: "ait"
+		},
+		{ 
+			ques: "SAVOIR :<br />Il faut qu'il ...", 
+			ans: "sache"
+		},
+		{ 
+			ques: "FAIRE :<br />Il faut qu'il ...", 
+			ans: "fasse"
+		},
+		{ 
+			ques: "DIRE :<br />Il faut qu'il ...", 
+			ans: "dise"
+		},
+		{ 
+			ques: "POUVOIR :<br />Il faut qu'il ...", 
+			ans: "puisse"
+		},
+		{ 
+			ques: "ALLER :<br />Il faut qu'il ...", 
+			ans: "aille"
+		},
+		{ 
+			ques: "VOIR :<br />Il faut qu'il ...", 
+			ans: "voie"
+		},
+		{ 
+			ques: "VOULOIR :<br />Il faut qu'il ...", 
+			ans: "veuille"
+		},
+		{ 
+			ques: "VENIR :<br />Il faut qu'il ...", 
+			ans: "vienne"
+		},
+		{ 
+			ques: "FALLOIR :<br />Il faut qu'il ...", 
+			ans: "faille"
+		},
+		{ 
+			ques: "DEVOIR :<br />Il faut qu'il ...", 
+			ans: "doive"
+		},
+		{ 
+			ques: "CROIRE :<br />Il faut qu'il ...", 
+			ans: "croie"
+		},
+		{ 
+			ques: "PRENDRE :<br />Il faut qu'il ...", 
+			ans: "prenne"
+		},
+		{ 
+			ques: "METTRE :<br />Il faut qu'il ...", 
+			ans: "mette"
+		},
+		{ 
+			ques: "TENIR :<br />Il faut qu'il ...", 
+			ans: "tienne"
+		},
+		{ 
+			ques: "ENTENDRE :<br />Il faut qu'il ...", 
+			ans: "entende"
+		},
+		{ 
+			ques: "RÉPONDRE :<br />Il faut qu'il ...", 
+			ans: "réponde"
+		},
+		{ 
+			ques: "RENDRE :<br />Il faut qu'il ...", 
+			ans: "rende"
+		},
+		{ 
+			ques: "CONNAÎTRE :<br />Il faut qu'il ...", 
+			ans: "connaisse"
+		},
+		{ 
+			ques: "PARAÎTRE :<br />Il faut qu'il ...", 
+			ans: "paraisse"
+		},
+		{ 
+			ques: "SENTIR :<br />Il faut qu'il ...", 
+			ans: "sente"
+		},
+		{ 
+			ques: "ATTENDRE :<br />Il faut qu'il ...", 
+			ans: "attende"
+		},
+		{ 
+			ques: "VIVRE :<br />Il faut qu'il ...", 
+			ans: "vive"
+		},
+		{ 
+			ques: "ÉCRIRE :<br />Il faut qu'il ...", 
+			ans: "écrive"
+		},
+		{ 
+			ques: "SUIVRE :<br />Il faut qu'il ...", 
+			ans: "suive"
+		},
+		{ 
+			ques: "BOIRE :<br />Il faut qu'il ...", 
+			ans: "boive"
+		}
+	]
+}; 
+var options = "null";
+$( "#quiz" ).jQuizMe( quiz, options, frLang );
+</script>
+
+</body>
+</html>
