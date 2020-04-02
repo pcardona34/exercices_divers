@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<outline>
+ <b c="mnu_ueDiv" u="module_ponctuation.html" t="I. La ponctuation finale">
+  <l c="mnu_expUc" u="module_ponctuation_1.html" t="Ponctuer la fin de la phrase."/>
+ </b>
+ <b c="mnu_ueDiv" u="module_ponctuation_2.html" t="II. La ponctuation interne">
+  <l c="mnu_expUc" u="module_ponctuation_3.html" t="La virgule et ses variantes"/>
+ </b>
+ <b c="mnu_ueDiv" u="module_ponctuation_4.html" t="III. Les emplois de la virgule">
+  <l c="mnu_practUc" u="module_ponctuation_5.html" t="Exercice"/>
+ </b>
+ <b c="mnu_ueDiv" u="module_ponctuation_6.html" t="IV. Les emplois de la virgule et des deux-points">
+  <l c="mnu_practUc" u="module_ponctuation_7.html" t="Exercice"/>
+ </b>
+ <b c="mnu_ueDiv" u="module_ponctuation_8.html" t="V. Cas particulier : les points de suspension">
+  <l c="mnu_expUc" u="module_ponctuation_9.html" t="Point ou virgule ?"/>
+ </b>
+ <b c="mnu_ueDiv" u="module_ponctuation_10.html" t="VI. Exercices de synthèse">
+  <l c="mnu_trainUc" u="module_ponctuation_11.html" t="Exercice : Exercice 1"/>
+  <l c="mnu_trainUc" u="module_ponctuation_12.html" t="Exercice : Exercice 2"/>
+ </b>
+</outline>
