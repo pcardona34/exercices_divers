@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="generator" content="LiSMeL v.2.0 by Luc De Droogh http://www.ldd-soft.be" />
+<title>Paroles rapportées - activité 15</title>
+<style type="text/css">
+/*<![CDATA[*/
+body{background:#FFFFFF;}
+#titre {width:80%;margin-left:auto;margin-right:auto;font:Normal 20pt Arial;color: teal;background:#FFFFFF;font-style:Normal;text-align:left;padding:10px 20px;overflow:auto;}
+#auteur_date {font:normal 8pt arial;color:gray;}
+#consigne {width:80%;margin-left:auto;margin-right:auto;margin-top:3px;font:normal 12pt Arial;color:#000000;background: lightgray;font-style:normal;text-align:left;padding:10px 20px;overflow:auto; border-radius: 6px;}
+#frm {width:80%;height:400px;overflow:auto;margin-left:auto;margin-right:auto;margin-top:3px;line-height:2.5;background:#FFFFFF;padding:20px;}
+#txt {width:90%;margin-left:auto;margin-right:auto;font:normal 14pt Arial;color:#000000;line-height:2.5;background:#FFFFFF;font-style:normal;padding:10px;overflow:auto;}
+.inp {background:#FFFFFF;font:normal 12pt Arial;color:#000000;text-align:center;}
+span.aide {font-size:80%;font-family:verdana;font-weight:bold;background:#ffff99;color:gray;vertical-align:super;cursor:pointer;border:1px solid gray;padding:0px 2px;}
+span.aide:hover {background:orange;color:white;}
+span.cm {font-size:80%;font-family:verdana;font-weight:bold;background:red;color:white;vertical-align:super;cursor:pointer;border:1px solid gray;padding:0px 2px;display:none;}
+span.cm:hover {background:white;color:red;}
+#indice {position:absolute;visibility:hidden;display:none;width:400px;height:150px;overflow:auto;font:normal 9pt Arial;color:#000000;font-style:normal;background:#FFFFFF;border:dotted 2px gray;padding:10px 20px;text-align:left;}
+#comment {position:absolute;visibility:hidden;display:none;width:400px;height:150px;overflow:auto;font:normal 9pt Arial;color:#000000;border:dotted 2px gray;font-style:normal;background:#FFFFFF;padding:10px 20px;text-align:left;}
+#score {position:absolute;visibility:hidden;display:none;width:400px;height:160px;overflow:auto;text-align:left;font:normal 12pt Arial;color:#000000;font-style:normal;background:#FFFFFF;padding:10px 20px;border:solid 2px gray;}
+.ok_btn {font:bold 9pt arial;color:gray;cursor:pointer;background:#cacaca;border:1px outset white;padding:2px;}
+.ok_btn:hover {background:#707070;border:2px inset white;color:white;}
+#commandes {width:80%;margin-left:auto;margin-right:auto;margin-top:3px;background:#FFFFFF;padding:10px 20px;text-align:center;}
+#creation {width:80%;margin-left:auto;margin-right:auto;margin-top:3px;font:normal 8pt arial;color:gray;text-align:center;background:transparent;padding:3px 20px;}
+a:link {color:gray;text-decoration:underline;font-weight:bold;}
+span.bnrep {font:bold 12pt arial;background:#AAFFD5;color:green;padding:0px 3px;}
+span.malrep {font:bold 12pt arial;background:#FF8080;color:yellow;padding:0px 3px;}
+.bouton {background-color: #4CAF50; border: none; color: white; font-weight: bold; padding: 15px 32px; margin-right: 12px; border-radius: 8px;}
+/*]]>*/
+</style>
+<script type="text/javascript">
+//<![CDATA[
+// initialisation
+var largeur=0;var hauteur=0;var i=0;var entree="";var points=0;var score="";
+var texteplus="<h1>Texte avant la transformation :<\/h1><br /><span style=\"font-size: medium;\">M. Fortier demanda &agrave; la m&egrave;re Clochet : &laquo; Est-ce que votre fils a d&eacute;j&agrave; gard&eacute; les vaches ?<\/span><br /><span style=\"font-size: medium;\">&nbsp; &mdash; Il l'a souvent fait, M. Fortier, r&eacute;pondit-elle avec une r&eacute;v&eacute;rence. Et il n'en a pas peur ! M&ecirc;me qu'il a h&acirc;te de charruer.<\/span><br /><span style=\"font-size: medium;\">&nbsp; &mdash; Ce n'est pas encore la saison, r&eacute;pliqua le fermier, mais j'engagerai volontiers le petit. &raquo;<\/span><br />";
+
+function liretexte(){
+var w="";w=open("","popup","width=600,height=500,toolbar=no,scrollbars=yes,resizable=yes");
+w.document.write(texteplus);
+w.document.write("<hr /><input type=\"button\" value=\"Fermer\" onclick=\"window.close();\">");
+w.document.close();
+}
+var rep= new Array();
+rep[0]="si";
+rep[1]="son";
+rep[2]="avait";
+rep[3]="avait";
+rep[4]="craignait";
+rep[5]="avait";
+rep[6]="labourer";
+rep[7]="était";
+rep[8]="engagerait";
+rep[9]="cet enfant";
+var com= new Array();// les commentaires
+com[0]="La conjonction « si » sert à introduire une interrogation totale au discours indirect.";
+com[1]="Au discours indirect, on doit employer le déterminant possessif qui renvoie à la personne concernée : c'est le fils de la mère Clochet.";
+com[2]="Temps exigé par la concordance des temps pour exprimer l'antériorité.";
+com[3]="Temps exigé par la concordance des temps pour exprimer l'antériorité.";
+com[4]="Temps exigé par la concordance des temps : imparfait d'habitude.";
+com[5]="Temps exigé par la concordance des temps : concomitance de l'imparfait.";
+com[6]="Le narrateur doit employer un niveau de langue neutre, sans reprendre à son compte le régionalisme.";
+com[7]="Temps exigé par la concordance des temps : concomitance de l'imparfait.";
+com[8]="Temps exigé par la concordance des temps : futur dans le passé.";
+com[9]="Le narrateur doit employer un niveau de langue neutre, sans reprendre à son compte la familiarité.";
+function centrer(){
+if (window.innerWidth) largeur=window.innerWidth;
+else if (document.documentElement && document.documentElement.clientWidth) largeur=document.documentElement.clientWidth;
+else if (document.body)	largeur=document.body.clientWidth;
+if (window.innerHeight)	hauteur=window.innerHeight;
+else if (document.documentElement && document.documentElement.clientHeight) hauteur=document.documentElement.clientHeight;
+else if (document.body) hauteur=document.body.clientHeight;
+}
+function cmt(x){
+centrer();
+var ic = document.getElementById("comment");
+var l = (largeur-400)/2;
+var t = (hauteur-100)/2;
+ic.style.left = l+"px";
+ic.style.top = t+"px";
+ic.style.visibility="visible";
+ic.style.display="block";
+ic.innerHTML = com[x];
+ic.innerHTML +="<hr \/><span class=\"ok_btn\" onclick=\"document.getElementById('comment').style.visibility='hidden';document.getElementById('comment').style.display='none';\";>OK<\/span>";
+}
+function corriger(){
+points=0;
+var d = document.getElementById("txt");
+for(i=0;i<rep.length;i++){
+entree = document.getElementById("t"+i);
+var rp = entree.value;
+if(rp.charAt(rp.length-1)==" ") {rp=rp.substr(0,rp.length-1);}
+if(rp==rep[i]){
+points++;
+var sp1 = document.createElement("span");
+var sp1_contenu = document.createTextNode(rep[i]);
+sp1.appendChild(sp1_contenu);
+sp1.setAttribute("class","bnrep");
+sp1.setAttribute("className","bnrep");
+var sp2 = document.getElementById("t"+i);
+var parentDiv = sp2.parentNode;
+parentDiv.insertBefore(sp1, sp2);
+d.removeChild(entree);
+}
+else{
+var sp1 = document.createElement("span");
+var sp1_contenu = document.createTextNode(rep[i]);
+sp1.appendChild(sp1_contenu);
+sp1.setAttribute("class","malrep");
+sp1.setAttribute("className","malrep");
+var sp2 = document.getElementById("t"+i);
+var parentDiv = sp2.parentNode;
+parentDiv.insertBefore(sp1, sp2);
+d.removeChild(entree);
+if(document.getElementById("cm"+i)) document.getElementById("cm"+i).style.display="inline";
+}
+}
+resultat();
+}
+function resultat(){
+centrer();
+var ic = document.getElementById("score");
+var l = (largeur-400)/2;
+var t = (hauteur-130)/2;
+ic.style.left = l+"px";
+ic.style.top = t+"px";
+ic.style.visibility="visible";
+ic.style.display="block";
+ic.innerHTML="<br /><br />Résultat : "+points+" sur "+rep.length+" !"
+if(points<rep.length) {
+ic.innerHTML+="<br \/><small><small>Les cases rouges contiennent les réponses attendues.<\/small><\/small><br \/>";
+ic.innerHTML+="<br \/><small><i>Cliquez sur les boutons [C] pour avoir des infos ! <\/i><\/small>";
+}
+ic.innerHTML +="<br \/><hr \/><span class=\"ok_btn\" onclick=\"document.getElementById('score').style.visibility='hidden';document.getElementById('score').style.display='none';\";>OK<\/span>";
+}
+function recommencer(){document.location = document.location;}
+
+//]]>
+</script>
+</head>
+<body>
+<div id="titre">Paroles rapportées - activité 15<br />
+<span id="auteur_date">
+Auteur : Patrick Cardona
+ ( 4/5/2020 )
+</span>
+</div>
+<div id="consigne">Transposez le texte de René Bazin au discours indirect en effectuant les choix appropriés.</div>
+<div id="frm"><form id="txt" name="txt" action="">
+M. Fortier demanda à la mère Clochet 
+<select id="t0" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="est-ce que">est-ce que</option>
+<option value="si">si</option>
+</select>
+<span id="cm0" class="cm" title="Commentaire" onclick="cmt(0);">C</span> 
+<select id="t1" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="votre">votre</option>
+<option value="leur">leur</option>
+<option value="son">son</option>
+</select>
+<span id="cm1" class="cm" title="Commentaire" onclick="cmt(1);">C</span>
+ fils 
+<select id="t2" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="a">a</option>
+<option value="aura">aura</option>
+<option value="avait">avait</option>
+</select>
+<span id="cm2" class="cm" title="Commentaire" onclick="cmt(2);">C</span>
+ déjà gardé les vaches. Elle lui répondit avec une révérence qu'il l'
+<select id="t3" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="aura">aura</option>
+<option value="a">a</option>
+<option value="avait">avait</option>
+</select>
+<span id="cm3" class="cm" title="Commentaire" onclick="cmt(3);">C</span> 
+ souvent fait. Elle ajouta qu'il ne les 
+<select id="t4" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="craindra">craindra</option>
+<option value="craint">craint</option>
+<option value="craignait">craignait</option>
+</select>
+<span id="cm4" class="cm" title="Commentaire" onclick="cmt(4);">C</span>
+  pas et qu'il 
+<select id="t5" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="aura">aura</option>
+<option value="a">a</option>
+<option value="avait">avait</option>
+</select>
+<span id="cm5" class="cm" title="Commentaire" onclick="cmt(5);">C</span>
+   hâte de 
+<select id="t6" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="charruer">charruer</option>
+<option value="labourer">labourer</option>
+</select><span id="cm6" class="cm" title="Commentaire" onclick="cmt(6);">C</span>.
+ Le fermier lui répliqua que ce n'
+<select id="t7" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="est">est</option>
+<option value="était">était</option>
+</select>
+<span id="cm7" class="cm" title="Commentaire" onclick="cmt(7);">C</span>
+ pas encore la saison, mais qu'il 
+<select id="t8" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="engagerait">engagerait</option>
+<option value="engagera">engagera</option>
+<option value="engage">engage</option>
+</select>
+<span id="cm8" class="cm" title="Commentaire" onclick="cmt(8);">C</span>
+ volontiers 
+<select id="t9" class="inp">
+<option value="???" selected="selected">???</option>
+<option value="cet enfant">cet enfant</option>
+<option value="le petit">le petit</option>
+</select>
+<span id="cm9" class="cm" title="Commentaire" onclick="cmt(9);">C</span>. 
+</form></div>
+<div id="indice">.</div><div id="comment">.</div><div id="score">.</div>
+<div id="commandes">
+<input type="button" class="bouton" value="Corriger" onclick="corriger();" />
+<input type="button" class="bouton" value="Recommencer" onclick="recommencer();" />
+<input type="button" class="bouton" value="Texte" onclick="liretexte();" />
+</div>
+<div id="creation">Generated by <b><a href="http://www.ldd-soft.be/" target="_blank">LiSMeL v.2.0</a></b> | Valid XHTML 1.0 | Valid CSS 2.1</div>
+</body>
+</html>
