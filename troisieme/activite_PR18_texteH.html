@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="generator" content="LiSMeL v.2.0 by Luc De Droogh http://www.ldd-soft.be" />
+<title>Paroles rapportées - Activité 18 - Texte H</title>
+<style type="text/css">
+/*<![CDATA[*/
+body{background:#FFFFFF;}
+#titre {width:80%;margin-left:auto;margin-right:auto;font:Normal 20pt Arial;color: teal;background:#FFFFFF;font-style:Normal;text-align:left;padding:10px 20px;overflow:auto;}
+#auteur_date {font:normal 8pt arial;color:gray;}
+#consigne {width:80%;margin-left:auto;margin-right:auto;margin-top:3px;font:normal 12pt Arial;color:#000000;background: lightgray;font-style:normal;text-align:left;padding:10px 20px;overflow:auto;border-radius: 6px;}
+#frm {width:80%;height:400px;overflow:auto;margin-left:auto;margin-right:auto;margin-top:3px;line-height:2.5;background:#FFFFFF;padding:20px;}
+#txt {width:90%;margin-left:auto;margin-right:auto;font:normal 14pt Arial;color:#000000;line-height:2.5;background:#FFFFFF;font-style:normal;padding:10px;overflow:auto;}
+.inp {background:#FFFFFF;font:normal 12pt Arial;color:#000000;text-align:center;}
+span.aide {font-size:80%;font-family:verdana;font-weight:bold;background:#ffff99;color:gray;vertical-align:super;cursor:pointer;border:1px solid gray;padding:0px 2px;}
+span.aide:hover {background:orange;color:white;}
+span.cm {font-size:80%;font-family:verdana;font-weight:bold;background:red;color:white;vertical-align:super;cursor:pointer;border:1px solid gray;padding:0px 2px;display:none;}
+span.cm:hover {background:white;color:red;}
+#indice {position:absolute;visibility:hidden;display:none;width:400px;height:150px;overflow:auto;font:normal 9pt Arial;color:#000000;font-style:normal;background:#FFFFFF;border:dotted 2px gray;padding:10px 20px;text-align:left;}
+#comment {position:absolute;visibility:hidden;display:none;width:400px;height:150px;overflow:auto;font:normal 9pt Arial;color:#000000;border:dotted 2px gray;font-style:normal;background:#FFFFFF;padding:10px 20px;text-align:left;}
+#score {position:absolute;visibility:hidden;display:none;width:400px;height:160px;overflow:auto;text-align:left;font:normal 12pt Arial;color:#000000;font-style:normal;background:#FFFFFF;padding:10px 20px;border:solid 2px gray;}
+.ok_btn {font:bold 9pt arial;color:gray;cursor:pointer;background:#cacaca;border:1px outset white;padding:2px;}
+.ok_btn:hover {background:#707070;border:2px inset white;color:white;}
+#commandes {width:80%;margin-left:auto;margin-right:auto;margin-top:3px;background:#FFFFFF;padding:10px 20px;text-align:center;}
+#creation {width:80%;margin-left:auto;margin-right:auto;margin-top:3px;font:normal 8pt arial;color:gray;text-align:center;background:transparent;padding:3px 20px;}
+a:link {color:gray;text-decoration:underline;font-weight:bold;}
+span.bnrep {font:bold 12pt arial;background:#AAFFD5;color:green;padding:0px 3px;}
+span.malrep {font:bold 12pt arial;background:#FF8080;color:yellow;padding:0px 3px;}
+.bouton {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.bouton-gris {background-color: #e7e7e7; color: black;}
+/*]]>*/
+</style>
+<script type="text/javascript">
+//<![CDATA[
+// initialisation
+var largeur=0;var hauteur=0;var i=0;var entree="";var points=0;var score="";
+var texteplus="<strong style=\"font-family: Verdana, Helvetica, sans-serif; font-size: medium;\">Texte initial :<\/strong><br style=\"font-family: Verdana, Helvetica, sans-serif; font-size: medium;\" /><span style=\"font-family: Verdana, Helvetica, sans-serif; font-size: medium;\">&nbsp;&nbsp; &nbsp;&laquo; Mon p&egrave;re, demanda le mendiant, puis-je entrer&nbsp; quelques instants ? Si vous me le permettez, je pourrai me r&eacute;chauffer. H&eacute;las ! il fait si froid dehors, ajouta-t-il, que mon chien&hellip; Ah ! la brave b&ecirc;te ! elle en est morte.<\/span><br style=\"font-family: Verdana, Helvetica, sans-serif; font-size: medium;\" /><span style=\"font-family: Verdana, Helvetica, sans-serif; font-size: medium;\">&nbsp;&nbsp; &nbsp;&mdash; La maison de Dieu est un asile ouvert &agrave; tous les malheureux &raquo;, r&eacute;pondit le pr&ecirc;tre en lui ouvrant la porte.<\/span><br />";
+
+function liretexte(){
+var w="";w=open("","popup","width=600,height=500,toolbar=no,scrollbars=yes,resizable=yes");
+w.document.write(texteplus);
+w.document.write("<hr /><input type=\"button\" value=\"Fermer\" onclick=\"window.close();\">");
+w.document.close();
+}
+var rep= new Array();
+rep[0]="demanda";
+rep[1]="au";
+rep[2]="prêtre";
+rep[3]="s'il";
+rep[4]="pouvait";
+rep[5]="se";
+rep[6]="ajouta";
+rep[7]="se";
+rep[8]="faisait";
+rep[9]="à l'extérieur";
+rep[10]="son";
+rep[11]="une";
+rep[12]=",";
+rep[13]="mort";
+rep[14]="lui";
+rep[15]="lui";
+rep[16]="que";
+rep[17]="l'église";
+rep[18]="était";
+rep[19]=".";
+function centrer(){
+if (window.innerWidth) largeur=window.innerWidth;
+else if (document.documentElement && document.documentElement.clientWidth) largeur=document.documentElement.clientWidth;
+else if (document.body)	largeur=document.body.clientWidth;
+if (window.innerHeight)	hauteur=window.innerHeight;
+else if (document.documentElement && document.documentElement.clientHeight) hauteur=document.documentElement.clientHeight;
+else if (document.body) hauteur=document.body.clientHeight;
+}
+function corriger(){
+points=0;
+var d = document.getElementById("txt");
+for(i=0;i<rep.length;i++){
+entree = document.getElementById("t"+i);
+var rp = entree.value;
+if(rp.charAt(rp.length-1)==" ") {rp=rp.substr(0,rp.length-1);}
+if(rp==rep[i]){
+points++;
+var sp1 = document.createElement("span");
+var sp1_contenu = document.createTextNode(rep[i]);
+sp1.appendChild(sp1_contenu);
+sp1.setAttribute("class","bnrep");
+sp1.setAttribute("className","bnrep");
+var sp2 = document.getElementById("t"+i);
+var parentDiv = sp2.parentNode;
+parentDiv.insertBefore(sp1, sp2);
+d.removeChild(entree);
+}
+else{
+var sp1 = document.createElement("span");
+var sp1_contenu = document.createTextNode(rep[i]);
+sp1.appendChild(sp1_contenu);
+sp1.setAttribute("class","malrep");
+sp1.setAttribute("className","malrep");
+var sp2 = document.getElementById("t"+i);
+var parentDiv = sp2.parentNode;
+parentDiv.insertBefore(sp1, sp2);
+d.removeChild(entree);
+}
+}
+resultat();
+}
+function resultat(){
+centrer();
+var ic = document.getElementById("score");
+var l = (largeur-400)/2;
+var t = (hauteur-130)/2;
+ic.style.left = l+"px";
+ic.style.top = t+"px";
+ic.style.visibility="visible";
+ic.style.display="block";
+ic.innerHTML="<br /><br />Résultat : "+points+" sur "+rep.length+" !"
+if(points<rep.length) {
+ic.innerHTML+="<br \/><small><small>Les cases rouges contiennent les réponses attendues.<\/small><\/small><br \/>";
+}
+ic.innerHTML +="<br \/><hr \/><span class=\"ok_btn\" onclick=\"document.getElementById('score').style.visibility='hidden';document.getElementById('score').style.display='none';\";>OK<\/span>";
+}
+function recommencer(){document.location = document.location;}
+
+//]]>
+</script>
+</head>
+<body>
+<div id="titre">Paroles rapportées - Activité 18 - Texte H<br />
+<span id="auteur_date">
+Auteur : Patrick Cardona
+ ( 5/5/2020 )
+</span>
+</div>
+<div id="consigne">Modifiez le texte H en y rapportant les paroles au discours indirect. Tenez compte du niveau de langue du narrateur.</div>
+<div id="frm"><form id="txt" name="txt" action="">
+Le mendiant <select id="t0" class="inp"><option value="???" selected="selected">???</option><option value="demande">demande</option><option value="demanda">demanda</option></select> <select id="t1" class="inp"><option value="???" selected="selected">???</option><option value="au">au</option><option value="« au">« au</option></select> <select id="t2" class="inp"><option value="???" selected="selected">???</option><option value="prêtre">prêtre</option><option value="père">père</option><option value="curé">curé</option></select> <select id="t3" class="inp"><option value="???" selected="selected">???</option><option value="est-ce qu'il">est-ce qu'il</option><option value="s'il">s'il</option></select> <select id="t4" class="inp"><option value="???" selected="selected">???</option><option value="pouvait">pouvait</option><option value="peut">peut</option></select> entrer dans l'église quelques instants pour <select id="t5" class="inp"><option value="???" selected="selected">???</option><option value="se">se</option><option value="me">me</option><option value="le">le</option></select> réchauffer. Il <select id="t6" class="inp"><option value="???" selected="selected">???</option><option value="ajouta">ajouta</option><option value="ajoute">ajoute</option></select> en <select id="t7" class="inp"><option value="???" selected="selected">???</option><option value="la">la</option><option value="me">me</option><option value="se">se</option></select> lamentant qu'il <select id="t8" class="inp"><option value="???" selected="selected">???</option><option value="fait">fait</option><option value="faisait">faisait</option></select> si froid <select id="t9" class="inp"><option value="???" selected="selected">???</option><option value="dehors">dehors</option><option value="à l'extérieur">à l'extérieur</option></select> que <select id="t10" class="inp"><option value="???" selected="selected">???</option><option value="son">son</option><option value="mon">mon</option></select> chien, <select id="t11" class="inp"><option value="???" selected="selected">???</option><option value="une">une</option><option value="la">la</option></select> brave bête<select id="t12" class="inp"><option value="???" selected="selected">???</option><option value="!">!</option><option value=",">,</option></select> en était <select id="t13" class="inp"><option value="???" selected="selected">???</option><option value="morte">morte</option><option value="mort">mort</option></select>.  Le prêtre <select id="t14" class="inp"><option value="???" selected="selected">???</option><option value="me">me</option><option value="lui">lui</option></select> répondit en <select id="t15" class="inp"><option value="???" selected="selected">???</option><option value="lui">lui</option><option value="m'">m'</option></select> ouvrant la porte <select id="t16" class="inp"><option value="???" selected="selected">???</option><option value="que">que</option><option value="si">si</option></select> <select id="t17" class="inp"><option value="???" selected="selected">???</option><option value="l'église">l'église</option><option value="la maison de Dieu">la maison de Dieu</option></select> <select id="t18" class="inp"><option value="???" selected="selected">???</option><option value="est">est</option><option value="était">était</option></select> un asile ouvert à tous les malheureux<select id="t19" class="inp"><option value="???" selected="selected">???</option><option value=".">.</option><option value=". »">. »</option></select><br />
+</form></div>
+<div id="indice">.</div><div id="comment">.</div><div id="score">.</div>
+<div id="commandes">
+<input type="button" class="bouton" value="Corriger" onclick="corriger();" />
+<input type="button" class="bouton" value="Recommencer" onclick="recommencer();" />
+<input type="button" class="bouton bouton-gris" value="Texte" onclick="liretexte();" />
+</div>
+<div id="creation">Generated by <b><a href="http://www.ldd-soft.be/" target="_blank">LiSMeL v.2.0</a></b> | Valid XHTML 1.0 | Valid CSS 2.1</div>
+</body>
+</html>
