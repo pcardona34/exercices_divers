@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="Patrick CARDONA" />
+<!-- En utilisant ce script, vous acceptez de laisser la ligne ci-dessous intacte. -->
+<meta name="generator" content="DroPeX v.1.0 by © 2010-Luc De Droogh, http://www.ldd-soft.be" />
+<title>Les relations entre les personnages dans les Fourberies</title>
+<style type="text/css">
+/*<![CDATA[*/
+body{margin:0px;margin-top:20px;text-align:center;background-color:darkgray;}
+#conteneur{position:relative;width:898px;margin:0px auto;margin-top:20px;background-color:#FFFFFF;}
+#gauche{float:left;}
+.calque{width:100px;height:30px;position:absolute;border:solid 1px gray;background-color:yellow;}
+#droite {margin-left:800px;text-align:center;font:bold 12pt arial;width:98px;background-color:#FFFFFF;}
+#letitre{margin:0px auto;padding:5px 0px;color:#000000;font:Normal 12pt Arial;text-align:center;background-color:#FFFFFF;font-style:Normal;}
+#laconsigne{margin:6px auto;color:#000000;font:normal 11pt Arial;text-align:center;background-color:#FFFFFF;font-style:normal;}
+.mot{width:100px;height:30px;text-align:center;background-color:gray;cursor:move;color:#FFFFFF;border:solid 1px #FFFF00;margin:0px auto;margin-top:2px;}
+#score{clear:both;height:30px;font:normal 11pt Arial;color:#000000;background-color:#FFFFFF;font-style:normal;text-align:center;}
+#copyr{text-align:center;font:normal 9pt arial;color:gray}
+#copyr a:link, #copyr a:visited {font:bold 9pt arial;color:gray;text-decoration:underline}
+#copyr a:hover {color:yellow;text-decoration:none;background-color:#000}
+/*]]>*/
+</style>
+<script type="text/javascript" src="data/dragdrop.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var nombre=0;
+var nq = 10;
+var pos=new Array(2);
+function position(objet,coordonnee){
+var Val=0,obj=objet;
+while (obj&&obj.tagName!="BODY"){Val+=eval("obj."+coordonnee);obj=obj.offsetParent;}
+return Val;}
+function verifPosition(calque,haut,gauche){
+var obj=document.getElementById(calque);
+var mintop=haut-5;var maxtop=haut+5;var minleft=gauche-5;var maxleft=gauche+5;
+var vartop=position(obj,"offsetTop");var varleft=position(obj,"offsetLeft");
+if ((vartop<maxtop)&&(vartop>mintop)&&(varleft<maxleft)&&(varleft>minleft)){
+nombre++;document.getElementById(calque).style.backgroundColor="#00FF80";document.getElementById(calque).style.backgroundColor="#4CAF50";
+document.getElementById(calque).onmousedown = new Function ("return false");
+var rp="";(nombre>1) ? rp=" bonnes réponses / "+nq+"" : rp=" bonne réponse / "+nq;
+document.getElementById("score").innerHTML= nombre+rp;
+if(nombre==nq){document.getElementById("score").innerHTML="EXERCICE TERMINÉ : "+nombre + rp;return false;}
+}else{document.getElementById(calque).style.backgroundColor="#f44336";return false;}}
+function verification(lequel){
+pos=findPos(document.getElementById("calque"+lequel));
+verifPosition(lequel,pos[0],pos[1]);
+return false;
+}
+function findPos(obj){
+var curleft=curtop=0;
+if (obj.offsetParent){
+do{curtop  += obj.offsetTop;curleft += obj.offsetLeft;}
+while(obj=obj.offsetParent);
+return [curtop,curleft];}}
+function voleur(e){return false;}
+function bien(){return true;}
+document.onselectstart=new Function ("return false");
+if(window.sidebar){document.onmousedown=voleur;document.onclick=bien;}
+//]]>
+</script>
+</head><body>
+<div id="conteneur">
+<div id="gauche"><img src="relations-scapin-vide.jpg" alt="" />
+
+<div id="calquetexte1" class="calque" style="top:13px;left:187px;"></div>
+<div id="calquetexte2" class="calque" style="top:13px;left:605px;"></div>
+<div id="calquetexte3" class="calque" style="top:115px;left:71px;"></div>
+<div id="calquetexte4" class="calque" style="top:113px;left:290px;"></div>
+<div id="calquetexte5" class="calque" style="top:116px;left:510px;"></div>
+<div id="calquetexte6" class="calque" style="top:117px;left:694px;"></div>
+<div id="calquetexte7" class="calque" style="top:223px;left:68px;"></div>
+<div id="calquetexte8" class="calque" style="top:226px;left:533px;"></div>
+<div id="calquetexte9" class="calque" style="top:334px;left:5px;"></div>
+<div id="calquetexte10" class="calque" style="top:332px;left:229px;"></div>
+</div>
+<div id="droite">
+<div id="letitre">Les relations entre les personnages dans les Fourberies</div><div id="laconsigne">Placez les étiquettes au bon endroit.</div>
+<div id='texte3' class='mot' style='position:relative;top:0px;left:0px;'>Léandre</div>
+
+<div id='texte1' class='mot' style='position:relative;top:0px;left:0px;'>Géronte</div>
+<div id='texte8' class='mot' style='position:relative;top:0px;left:0px;'>Silvestre</div>
+<div id='texte9' class='mot' style='position:relative;top:0px;left:0px;'>Carle</div>
+<div id='texte7' class='mot' style='position:relative;top:0px;left:0px;'>Scapin</div>
+<div id='texte4' class='mot' style='position:relative;top:0px;left:0px;'>Hyacinthe</div>
+<div id='texte6' class='mot' style='position:relative;top:0px;left:0px;'>Zerbinette</div>
+<div id='texte10' class='mot' style='position:relative;top:0px;left:0px;'>Nérine</div>
+<div id='texte2' class='mot' style='position:relative;top:0px;left:0px;'>Argante</div>
+<div id='texte5' class='mot' style='position:relative;top:0px;left:0px;'>Octave</div>
+
+</div>
+<div id="score">Déplacez les étiquettes au moyen de la souris.</div>
+</div>
+<!-- En utilisant ce script, vous acceptez de laisser la ligne ci-dessous intacte. -->
+<div id="copyr">Generated by <a href="http://www.ldd-soft.be">&copy; DroPeX v.1.0</a><br /></div>
+<script type="text/javascript">
+//<![CDATA[
+Drag.init(document.getElementById("texte1"));
+Drag.init(document.getElementById("texte2"));
+Drag.init(document.getElementById("texte3"));
+Drag.init(document.getElementById("texte4"));
+Drag.init(document.getElementById("texte5"));
+Drag.init(document.getElementById("texte6"));
+Drag.init(document.getElementById("texte7"));
+Drag.init(document.getElementById("texte8"));
+Drag.init(document.getElementById("texte9"));
+Drag.init(document.getElementById("texte10"));
+//]]>
+</script>
+</body>
+</html>
