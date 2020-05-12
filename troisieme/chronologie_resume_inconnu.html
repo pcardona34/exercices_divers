@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Chronologie dans le roman <em>Inconnu à cette adresse</em></title>
+<style media="screen">
+body {
+	margin:0;
+	padding:0;
+	background-color:#FFFFFF;
+}
+#questionnaire {
+	width:90%;
+	margin:0 auto;
+}
+#titre_ex {
+	width:90%;
+	margin:40px auto 0 auto;
+	font:Normal 16pt Arial;
+	font-style:Normal;
+	color:#000000;
+	text-align:left;
+	background-color:#FFFFFF;
+	border:2px solid gray;
+	padding:5px;
+}
+#sstitre_ex {
+	width:90%;
+	margin:5px auto 5px auto;
+	font:Normal 14pt Arial;
+	font-style:Normal;
+	color:#000000;
+	text-align:left;
+	background-color:#FFFFFF;
+	border:none;
+	padding:5px;
+}
+#consigne_ex {
+	width:90%;
+	margin:2px auto 20px auto;
+	font:normal 12pt Arial;
+	font-style:normal;
+	color:#000000;
+	text-align:left;
+	background-color:#FFFFFF;
+	border:none;
+	padding:5px;
+}
+#comd {
+	width:100%;
+	padding:3px 0;
+	margin:2px auto 20px auto;
+	text-align:center;
+	background-color:#FFFFFF;
+	border:2px solid gray;
+}
+li {
+	margin-bottom:5px;
+	padding:0
+}
+form.frm {
+	margin-top:5px;
+}
+#a_rebours {
+	text-align:center
+}
+#temps {
+	font:bold 10pt Arial;
+	color:#000000;
+}
+#chrono{
+	font:normal 14pt Arial;
+	font-style:normal;
+	color:#000000;
+	text-align:center;
+	border:none;
+	width:120px;
+	padding:5px;
+	background-color:#fff;
+}
+#questions{
+	font:normal 18pt Arial;
+	font-style:normal;
+	color:#000000;
+}
+#chrono, #temps, #soluces, #encore {
+	display:none;
+}
+.cons_q {
+	padding:3px 0 3px 5px;
+	background-color:#FFFFFF;
+	margin-bottom:3px;
+	font:normal 12pt Arial;
+	font-style:Normal;
+	color:#000000;
+	border:none;
+}
+input.elm {
+	background-color: #F8F8F8;
+	font: normal 12pt Arial;
+	font-style: normal;
+	color: #000000;
+	text-align: left;
+	margin-left: 2px;
+	border: 1px solid gray;
+}
+input.elm:hover {
+	background-color: #000000;
+	color: #F8F8F8;
+}
+input.cmd {
+	border: 1px solid #000000;
+	color: #000000;
+	background-color: #FFFFFF;
+	cursor: pointer;
+	height: 20pt;
+	font: normal 10pt Arial;
+	margin: 2px 0 0 2px;
+}
+input.cmd:hover {
+	border: 1px solid #FFFFFF;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+.quest {
+	background-color: #FFFFFF;
+	padding: 2px 0 2px 5px;
+	min-height: 24pt;
+	font: normal 12pt Arial;
+	font-style: Normal;
+	color: #000000;
+	border: 1px solid gray;
+}
+.quest  > span {
+	margin-right:4px;
+}
+.com { /* commentaires */
+	display:none;
+	font:normal 9pt Arial;
+	font-style:normal;
+	text-align:left;
+	color:#000000;
+	background-color:#FFFFFF;
+	padding: 3px 10px;
+	border: 1px solid gray;
+	overflow:auto;
+	margin-top:3px;
+}
+.copyr {
+	text-align:center;
+	color:gray;
+	font:normal 10pt verdana,arial,helvetica,sans-serif;
+	margin-bottom:10px;
+}
+.copyr > a:link, .copyr > a:visited {
+	color:gray;
+	text-decoration:underline;
+}
+.copyr > a:hover {
+	text-decoration:none;
+	color:red
+}
+#feedback {
+	position:absolute;
+	display:none;
+	top:500px;
+	left:400px;
+	width:400px;
+	height:auto;
+	border:2px solid gray;
+	text-align:center;
+	background-color:#888;
+	color:#ffff00;
+	font:bold 12pt verdana,arial,helvetica,sans-serif;
+	cursor:move;
+}
+#fb {
+	background-color:#eaeaea;
+	font:normal 10pt verdana,arial,helvetica,sans-serif;
+	color:gray;
+	margin:5px;
+	padding:10px;
+	height:auto;
+	overflow:auto;
+}
+#close {
+	font:bold 12pt verdana,arial,helvetica,sans-serif;
+	color:#fff;
+	border:1px solid #fff;
+	padding:0 4px;
+	float:right;
+	margin-right:5px;
+	cursor:pointer;
+}
+#close:hover {
+	color:#ffff00;
+	border-color:#ffff00;
+}
+#datation,#auteur {
+	margin:0 2px;
+}
+.comments {
+	text-decoration:underline;color:red;font-style:italic;letter-spacing:2px;
+}
+
+</style>
+</head>
+<body onmousemove="drag(event);" onmouseup="endDrag();">
+<div id="titre_ex">Chronologie dans le roman <em>Inconnu à cette adresse</em></div>
+<div id="consigne_ex">Rétablissez la chronologie</div>
+<div id="questionnaire">
+	<form action="#">
+		<ol id="questions"></ol>
+		<p id="comd">
+			<input type="button" class="cmd" id="check" value="Corriger" onclick="corriger();" />
+			<input type="button" class="cmd" id="soluces" value="Solutions" onclick="answers();" />
+			<input type="button" class="cmd" id="encore" value="Recommencer" onclick="more();" />
+		</p>
+	</form>
+	<div class="copyr">
+		Created with <a href="http://www.ldd-soft.be/">&copy;2013-PeLMeL v.2.0</a><br />
+<span id="datation">12/05/2020</span>
+<span id="auteur"> by Patrick Cardona</span>
+	</div>
+</div>
+<div id="feedback" onmousedown="beginDrag(this,event);">
+	INFO<span id="close" onclick="document.getElementById('feedback').style.display='none';return false;">X</span>
+	<div id="fb"></div>
+</div>
+
+<script>
+/* RECOMMENCER */
+function more(){self.location.href = self.location.href;}
+
+/* MONTRER LES BONNES REPONSES */
+document.getElementById("soluces").style.display="inline";
+
+var i=0; var tm;
+
+var RPC=[]; // éléments dans l'ordre correct avec délimiteurs éventuels
+var RC=[]; // éléments séparés dans l'ordre correct
+var RM=[]; // éléments séparés mélangés
+
+RPC[0]="Max et Martin fondent une galerie d'art à San Francisco.|Martin retourne vivre en Allemagne avec sa famille.|Adolf Hitler devient premier chancelier du Reich.|Martin refuse les idées libérales.|Heinrich entre dans les jeunesses hitlériennes.|Martin prénomme Adlolf son dernier enfant.|Martin demande à Max de ne plus écrire à son domicile.|Griselle triomphe au théâtre de Vienne.";
+RPC[1]="Griselle se rend à Berlin malgré l'antisémitisme.|Griselle fait scandale au théâtre de Berlin parce qu'elle est juive.|Martin refuse de protéger Griselle.|Sans nouvelles de sa sœur, Max appelle plusieurs fois au secours Martin.|Martin répond à Max pour lui annoncer la mort de Griselle.|Pour se venger, Max envoie un télégramme et une série de lettres compromettantes à Martin.|Retour de la dernière lettre de Max avec la mention « Inconnu à cette adresse ».";
+
+RC[0] = new Array("Max et Martin fondent une galerie d'art à San Francisco.","Martin retourne vivre en Allemagne avec sa famille.","Adolf Hitler devient premier chancelier du Reich.","Martin refuse les idées libérales.","Heinrich entre dans les jeunesses hitlériennes.","Martin prénomme Adlolf son dernier enfant.","Martin demande à Max de ne plus écrire à son domicile.","Griselle triomphe au théâtre de Vienne.");
+RC[1] = new Array("Griselle se rend à Berlin malgré l'antisémitisme.","Griselle fait scandale au théâtre de Berlin parce qu'elle est juive.","Martin refuse de protéger Griselle.","Sans nouvelles de sa sœur, Max appelle plusieurs fois au secours Martin.","Martin répond à Max pour lui annoncer la mort de Griselle.","Pour se venger, Max envoie un télégramme et une série de lettres compromettantes à Martin.","Retour de la dernière lettre de Max avec la mention « Inconnu à cette adresse ».");
+
+RM[0]= new Array("Martin retourne vivre en Allemagne avec sa famille.","Max et Martin fondent une galerie d'art à San Francisco.","Martin refuse les idées libérales.","Martin demande à Max de ne plus écrire à son domicile.","Adolf Hitler devient premier chancelier du Reich.","Heinrich entre dans les jeunesses hitlériennes.","Griselle triomphe au théâtre de Vienne.","Martin prénomme Adlolf son dernier enfant.");
+RM[1]= new Array("Retour de la dernière lettre de Max avec la mention « Inconnu à cette adresse ».","Martin refuse de protéger Griselle.","Sans nouvelles de sa sœur, Max appelle plusieurs fois au secours Martin.","Martin répond à Max pour lui annoncer la mort de Griselle.","Pour se venger, Max envoie un télégramme et une série de lettres compromettantes à Martin.","Griselle fait scandale au théâtre de Berlin parce qu'elle est juive.","Griselle se rend à Berlin malgré l'antisémitisme.");
+
+// ECRIRE LES QUESTIONS (li, divs, forms et inputs)
+var O = document.getElementById("questions");
+O.innerHTML = "";
+for(i=0;i<RM.length;i++){
+// d'abord créer le li
+var L = document.createElement("li");
+L.id = "li"+i;
+O.appendChild(L);
+// puis le div pour la réponse
+var DV = document.createElement("div");
+DV.id = "q"+i;
+DV.className = "quest";
+DV.innerHTML= "";
+L.appendChild(DV);
+// form
+var FR = document.createElement("form");
+FR.id = "f"+i;
+FR.className = "frm";
+L.appendChild(FR);
+// les mots dans le désordre
+var n = i;
+for(x=0;x<RM[i].length;x++){
+	var ip = document.createElement("input");
+	ip.type = "button";
+	ip.className = "elm";
+	ip.id = "f"+i+"i"+x;
+	ip.value = RM[i][x];
+	ip.setAttribute("onclick","clic('q"+i+"',this.value,this.id);");
+	document.getElementById("f"+i).appendChild(ip);
+}
+//retour chariot
+	saut = document.createElement("br");
+	document.getElementById("f"+i).appendChild(saut);
+// bouton annuler
+var ip = document.createElement("input");
+ip.type = "button";
+ip.className = "cmd";
+ip.value = "Annuler";
+var cancel = "nihil"+i;
+ip.setAttribute("id",cancel);
+ip.title = "Enlever le dernier élément";
+ip.setAttribute("onclick","annuler('q"+i+"','f"+i+"');");
+document.getElementById("f"+i).appendChild(ip);
+}
+
+/* LES FONCTIONS */
+function clic(t,v,iD){
+	document.getElementById(iD).style.visibility="hidden";
+	var sp = document.createElement("span");
+	sp.setAttribute("id","S"+iD);
+	sp.innerHTML = v;
+	document.getElementById(t).appendChild(sp);
+	document.getElementById("feedback").style.display="none"; // masquer le feedback
+}
+
+function annuler(Qid,Fid){
+	Q = document.getElementById(Qid);
+	if(Q.childNodes.length==0){return}
+	else{
+		// enlever le dernier span
+		last = Q.lastChild;
+		Q.removeChild(last);
+		// récupérer le n° dans l'ID de ce span
+		if(last.id){
+			lastID = last.id;
+			posI = lastID.search("i")+1; // position du "i" + 1
+			no = lastID.substr(posI);
+			// réafficher le bouton concerné
+			document.getElementById(Fid+"i"+no).style.visibility="visible";
+		}
+	}
+}
+
+/* MONTRER LES SOLUTIONS */
+function answers(){
+	for(i=0;i<RC.length;i++){
+		correct = RPC[i].replace(/[|]/g," ");
+		document.getElementById("q"+i).innerHTML = correct;
+		document.getElementById("q"+i).style.cssText = "color:Green;padding-left:5px;";
+		inputs = document.getElementById("f"+i).getElementsByTagName("input");
+		for(w=0;w<inputs.length;w++){
+			if(inputs[w].type=="button"){inputs[w].style.visibility="hidden";}
+		}
+	}
+	document.getElementById("check").disabled = true; // désactiver le bouton "corriger"
+document.getElementById("encore").style.display="inline";
+}
+
+/* CORRECTION */
+function corriger(){
+	var rempli=0; var reponse="";
+	for(i=0;i<RC.length;i++){
+		DV = document.getElementById("q"+i);
+		correct = RPC[i].replace(/[|]/g,"");
+		if(DV.textContent){reponse = DV.textContent;}
+		else if(DV.innerText){reponse = DV.innerText;}
+		else {reponse = "";} // Si aucun des deux n'existe, cela est sûrement dû au fait qu'il n'y a pas de texte
+
+		if(reponse==correct){
+			DV.style.backgroundColor="Lime";
+			document.getElementById("nihil"+i).style.display="none"; // effacer le bouton "Annuler"
+			document.getElementById("f"+i).style.display="none"; // effacer le form
+			rempli++;
+		}
+		else if(reponse!="" && reponse!=correct){
+			DV.style.backgroundColor="#FFCCE6";
+			rempli++;
+		}
+	}
+
+		if(rempli==RC.length){ // s'il ne reste plus de box vide
+			document.getElementById("check").disabled=true;// on désactive le bouton "Corriger"
+			document.getElementById("encore").style.display="inline";// on affiche le bouton "Recommencer"
+			for(i=0;i<RC.length;i++){
+				document.getElementById("f"+i).style.display="none"; // masquer les mots à cliquer
+				document.getElementById("nihil"+i).style.display="none"; // masquer le bouton "Annuler"
+			}
+		}
+}
+
+/* début du SCRIPT de DRAG-n-DROP réalisé par oli. http://blog.oli-web.com */
+var isDragging = false; var objectToDrag, obj, ecartX, ecartY, curX, curY;
+function positionne(p_id, p_posX, p_pos_Y){
+	document.getElementById(p_id).style.left = p_posX;
+	document.getElementById(p_id).style.top = p_pos_Y;
+}
+function getPositionCurseur(e){
+	if(document.all){curX = event.clientX;curY = event.clientY;}//ie
+	if(document.layers){curX = e.pageX;curY = e.pageY;}//netscape 4
+	if(document.getElementById){curX = e.clientX;curY = e.clientY;}//mozilla
+}
+function beginDrag(p_obj,e){
+	isDragging = true;
+	objectToDrag = p_obj;
+	getPositionCurseur(e);
+	ecartX = curX - parseInt(objectToDrag.style.left);
+	ecartY = curY - parseInt(objectToDrag.style.top);
+}
+function drag(e){
+	var newPosX; var newPosY;
+	if(isDragging == true){
+		getPositionCurseur(e);
+		newPosX = curX - ecartX;newPosY = curY - ecartY;
+		objectToDrag.style.left = newPosX + "px";objectToDrag.style.top = newPosY + "px";
+	}
+}
+function endDrag(){isDragging=false;}
+/* fin du SCRIPT de DRAG-n-DROP réalisé par oli. http://blog.oli-web.com */
+
+/* FEEDBACK */
+function alerte(message){
+	document.getElementById("fb").innerHTML=message;
+	document.getElementById("feedback").style.display="block";
+}
+
+</script>
+<script type="text/javascript">
+   // <![CDATA[
+   //positionnement initial du div "feedback"
+   positionne("feedback", "500px", "400px");
+   isDragging = false;
+   // ]]>
+</script>
+</body>
+</html>
