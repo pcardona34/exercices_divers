@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<outline>
+ <l c="mnu_obj" u="Module_Ecrire_un_dialogue_en_5e.html" t="Objectifs"/>
+ <l c="mnu_intro" u="Module_Ecrire_un_dialogue_en_5e_1.html" t="Introduction"/>
+ <b c="mnu_ueDiv" u="Module_Ecrire_un_dialogue_en_5e_2.html" t="I. Les formes de dialogues">
+  <l c="mnu_intro" u="Module_Ecrire_un_dialogue_en_5e_3.html" t="Introduction"/>
+  <l c="mnu_trainUc" u="categ-formes-de-dialogue.html" t="Exercice : Distinguer les différentes formes de dialogues"/>
+  <l c="mnu_practUc" u="Exercice_01.html" t="Exercice : Approfondissons les différentes formes de dialogues"/>
+  <l c="mnu_conclu" u="Module_Ecrire_un_dialogue_en_5e_19.html" t="Conclusion"/>
+ </b>
+ <b c="mnu_ueDiv" u="Module_Ecrire_un_dialogue_en_5e_4.html" t="II.Observation d'un dialogue">
+  <l c="mnu_intro" u="Module_Ecrire_un_dialogue_en_5e_5.html" t="Introduction"/>
+  <l c="mnu_practUc" u="Module_Ecrire_un_dialogue_en_5e_20.html" t="Exercice : Observation approfondie du document n° 3 : extrait de « Bilbo le hobbit »"/>
+  <l c="mnu_trainUc" u="Module_Ecrire_un_dialogue_en_5e_21.html" t="Exercice : Le temps des verbes dans un passage de dialogue"/>
+ </b>
+ <b c="mnu_ueDiv" u="Module_Ecrire_un_dialogue_en_5e_6.html" t="III. Faisons le point (1)">
+  <l c="mnu_expUc" u="Module_Ecrire_un_dialogue_en_5e_7.html" t="Synthèse n° 1"/>
+ </b>
+ <b c="mnu_ueDiv" u="Module_Ecrire_un_dialogue_en_5e_8.html" t="IV. Les verbes de déclaration">
+  <l c="mnu_trainUc" u="Exercice_02.html" t="Exercice : Reconnaître les verbes de déclaration"/>
+ </b>
+ <b c="mnu_ueDiv" u="Module_Ecrire_un_dialogue_en_5e_9.html" t="V. La ponctuation d'une réplique isolée">
+  <l c="mnu_intro" u="Module_Ecrire_un_dialogue_en_5e_10.html" t="Introduction"/>
+  <l c="mnu_trainUc" u="Exercice_03.html" t="Exercice : Réplique isolée (1)"/>
+  <l c="mnu_trainUc" u="Exercice_04.html" t="Exercice : Réplique isolée (2)"/>
+  <l c="mnu_trainUc" u="Exercice_05.html" t="Exercice : Réplique isolée (3)"/>
+  <l c="mnu_trainUc" u="Exercice_06.html" t="Exercice : Réplique isolée (4)"/>
+ </b>
+ <b c="mnu_ueDiv" u="Module_Ecrire_un_dialogue_en_5e_11.html" t="VI. Ponctuation d'un bloc de répliques.">
+  <l c="mnu_practUc" u="Exercice_07.html" t="Exercice : Bloc de répliques (1)"/>
+  <l c="mnu_practUc" u="Exercice_08.html" t="Exercice : Bloc de répliques (2)"/>
+ </b>
+ <b c="mnu_ueDiv" u="Module_Ecrire_un_dialogue_en_5e_12.html" t="VII. Faisons le point (2)">
+  <l c="mnu_expUc" u="Module_Ecrire_un_dialogue_en_5e_13.html" t="Synthèse n° 2"/>
+ </b>
+ <b c="mnu_ueDiv" u="Module_Ecrire_un_dialogue_en_5e_14.html" t="VIII. Exercice de synthèse">
+  <l c="mnu_practUc" u="Module_Ecrire_un_dialogue_en_5e_15.html" t="Exercice : Exercice de synthèse"/>
+ </b>
+ <b c="mnu_ueDiv" u="Module_Ecrire_un_dialogue_en_5e_16.html" t="IX. Expression écrite">
+  <l c="mnu_practUc" u="Module_Ecrire_un_dialogue_en_5e_17.html" t="Exercice : Entraînement à l'expression écrite"/>
+ </b>
+ <l c="mnu_conclu" u="Module_Ecrire_un_dialogue_en_5e_18.html" t="Conclusion"/>
+</outline>

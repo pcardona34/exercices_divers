@@ -1,0 +1,29 @@
+/* IE */
+.ddDropCatch {
+    margin-bottom: 0;
+	margin-top:15px;
+}
+#tplBtmProgress {
+	background:url(../img/struct/progressIEG.png) no-repeat top left;
+	width:100%;
+	left:3px;
+}
+.tplBtmProgressD {
+	background:url(../img/struct/progressIED.png) no-repeat top right;
+	height:38px;
+	margin-right:6px;	
+}
+.tplBtmProgressC {
+	background:url(../img/struct/progressIE.png) repeat-x top left;
+	margin:0 97px;
+	height:38px;
+}
+.eval_progressG {
+    position:absolute;
+    margin: 0;
+	top:8px;
+	left:14px;
+}
+.eval_progressD {
+    margin-right:50px;
+}
