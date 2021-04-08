@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>L'intrigue dans Le Malade imaginaire</title>
+<link rel="stylesheet" type="text/css" href="fichier_style.css" media="screen" />
+</head>
+<body onmousemove="drag(event);" onmouseup="endDrag();">
+<div id="titre_ex">L'intrigue dans Le Malade imaginaire</div>
+<div id="sstitre_ex">Reconstitution de l'intrigue</div>
+<div id="consigne_ex">Mettez dans l'ordre les événements.</div>
+<div id="questionnaire">
+	<form action="#">
+		<ol id="questions"></ol>
+		<p id="comd">
+			<input type="button" class="cmd" id="check" value="Corriger" onclick="corriger();" />
+			<input type="button" class="cmd" id="encore" value="Recommencer" onclick="more();" />
+		</p>
+	</form>
+	<div class="copyr">
+		Created with <a href="http://www.ldd-soft.be/">&copy;2013-PeLMeL v.2.0</a><br />
+<span id="auteur"> by M. Cardona</span>
+	</div>
+</div>
+<div id="feedback" onmousedown="beginDrag(this,event);">
+	INFO<span id="close" onclick="document.getElementById('feedback').style.display='none';return false;">X</span>
+	<div id="fb"></div>
+</div>
+
+<script type="text/javascript" src="fichier_javascript.js"></script>
+<script type="text/javascript">
+   // <![CDATA[
+   //positionnement initial du div "feedback"
+   positionne("feedback", "500px", "400px");
+   isDragging = false;
+   // ]]>
+</script>
+
+</body>
+</html>
