@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="author" content="M. CARDONA">
+<!-- En utilisant ce script, vous acceptez de laisser la ligne ci-dessous intacte. -->
+<meta name="generator" content="DroPeX v.1.1 by © 2013-Luc De Droogh, http://www.ldd-soft.be">
+<title>Les personnages dans Le Malade imaginaire</title>
+<style type="text/css">
+/*<![CDATA[*/
+body{margin:0;text-align:center;background-color:#FFFFFF;}
+#letitre{width:955px;margin:20px auto 0 auto;padding:5px 0;color:#000000;font:Normal 12pt Arial;text-align:center;background-color:#FFFFFF;font-style:Normal;padding:8px 0}
+#laconsigne{width:955px;margin:6px auto;color:#000000;font:normal 11pt Arial;text-align:center;background-color:#FFFFFF;font-style:normal;padding:5px 0}
+#conteneur{position:relative;width:955px;margin:5px auto 0 auto;background-color:#FFFFFF;}
+#gauche{float:left;}
+.calque{width:110px;height:40px;position:absolute;border:dotted 1px gray;background-color:white;}
+#droite {padding-top:5px;margin-left:800px;text-align:center;font:bold 14pt arial;width:135px;background-color:#FFFFFF;}
+.mot{width:110px;height:40px;text-align:center;background-color:#9DFF80;cursor:move;color:#000000;border:dotted 1px #000000;margin:0 auto;margin-top:2px;}
+#score{clear:both;padding:5px 0;margin-top:5px;font:normal 11pt Arial;color:#000000;background-color:#FFFFFF;font-style:normal;text-align:center;}
+#copyr{text-align:center;font:normal 9pt arial;color:gray}
+#copyr a:link, #copyr a:visited {font:bold 9pt arial;color:gray;text-decoration:underline}
+#copyr a:hover {color:yellow;text-decoration:none;background-color:#000}
+/*]]>*/
+</style>
+<script type="text/javascript" src="Les_personnages_dans_Le_Malade_imaginaire_fichiers/dragdrop.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var nq = 12; // nombre de questions
+var nombre=0;
+var pos=new Array(2);
+function position(objet,coordonnee){
+var Val=0,obj=objet;
+while (obj&&obj.tagName!="BODY"){Val+=eval("obj."+coordonnee);obj=obj.offsetParent;}
+return Val;}
+function verifPosition(calque,haut,gauche){
+var obj=document.getElementById(calque);
+var mintop=haut-5;var maxtop=haut+5;var minleft=gauche-5;var maxleft=gauche+5;
+var vartop=position(obj,"offsetTop");var varleft=position(obj,"offsetLeft");
+if ((vartop<maxtop)&&(vartop>mintop)&&(varleft<maxleft)&&(varleft>minleft)){
+nombre++;document.getElementById(calque).style.backgroundColor="#00FF80";document.getElementById(calque).style.color="green";
+document.getElementById(calque).onmousedown = new Function ("return false");
+var rp="";(nombre>1) ? rp=" bonnes réponses sur "+nq+"" : rp=" bonne réponse sur "+nq;
+document.getElementById("score").innerHTML= nombre+rp;jouerSon("data/correct.mp3");
+if(nombre==nq){jouerSon("data/fin.mp3");document.getElementById("score").innerHTML="EXERCICE TERMINÉ : "+nombre + rp;return false;}
+}else{jouerSon("data/faux.mp3");document.getElementById(calque).style.backgroundColor="red";return false;}}
+function jouerSon(son){
+var content = "<object type='application/x-shockwave-flash' data='data/dewplayer.swf?autostart=1&son="+son+"' width='0' height='0'><param name='movie' value='data/dewplayer.swf?autostart=1&son="+son+"' /><\/object>";
+document.getElementById("player").innerHTML=content;}
+function verification(lequel){
+pos=findPos(document.getElementById("calque"+lequel));
+verifPosition(lequel,pos[0],pos[1]);
+return false;
+}
+function findPos(obj){
+var curleft=curtop=0;
+if (obj.offsetParent){
+do{curtop  += obj.offsetTop;curleft += obj.offsetLeft;}
+while(obj=obj.offsetParent);
+return [curtop,curleft];}}
+function voleur(e){return false;}
+function bien(){return true;}
+document.onselectstart=new Function ("return false");
+if(window.sidebar){document.onmousedown=voleur;document.onclick=bien;}
+//]]>
+</script>
+</head><body>
+<div id="letitre">Les personnages dans Le Malade imaginaire</div>
+<div id="laconsigne">Placez les personnages !</div>
+<div id="conteneur">
+<div id="gauche"><img src="Les_personnages_dans_Le_Malade_imaginaire_fichiers/fond_personnages.jpg" alt="">
+<div id="calquetexte1" class="calque" style="top:277px;left:5px;"></div>
+<div id="calquetexte2" class="calque" style="top:273px;left:138px;"></div>
+<div id="calquetexte3" class="calque" style="top:152px;left:310px;"></div>
+<div id="calquetexte4" class="calque" style="top:30px;left:408px;"></div>
+<div id="calquetexte5" class="calque" style="top:16px;left:591px;"></div>
+<div id="calquetexte6" class="calque" style="top:101px;left:409px;"></div>
+<div id="calquetexte7" class="calque" style="top:171px;left:546px;"></div>
+<div id="calquetexte8" class="calque" style="top:242px;left:547px;"></div>
+<div id="calquetexte9" class="calque" style="top:263px;left:681px;"></div>
+<div id="calquetexte10" class="calque" style="top:381px;left:416px;"></div>
+<div id="calquetexte11" class="calque" style="top:525px;left:282px;"></div>
+<div id="calquetexte12" class="calque" style="top:522px;left:465px;"></div>
+</div>
+<div id="droite">
+<div id="texte2" class="mot" style="position:relative;top:0;left:0;">ARGAN</div>
+<div id="texte3" class="mot" style="position:relative;top:0;left:0;">TOINETTE</div>
+<div id="texte11" class="mot" style="position:relative;top:0;left:0;">BÉLINE</div>
+<div id="texte10" class="mot" style="position:relative;top:0;left:0;">M. FLEURANT</div>
+<div id="texte6" class="mot" style="position:relative;top:0;left:0;">LOUISON</div>
+<div id="texte12" class="mot" style="position:relative;top:0;left:0;">M. BONNEFOY</div>
+<div id="texte8" class="mot" style="position:relative;top:0;left:0;">M. DIAFOIRUS</div>
+<div id="texte4" class="mot" style="position:relative;top:0;left:0;">ANGÉLIQUE</div>
+<div id="texte5" class="mot" style="position:relative;top:0;left:0;">CLÉANTE</div>
+<div id="texte9" class="mot" style="position:relative;top:0;left:0;">THOMAS DIAFOIRUS</div>
+<div id="texte7" class="mot" style="position:relative;top:0;left:0;">M. PURGON</div>
+<div id="texte1" class="mot" style="position:relative;top:0;left:0;">BÉRALDE</div>
+</div>
+<div id="score">Déplacez les mots au moyen de la souris!</div>
+</div>
+<!-- En utilisant ce script, vous acceptez de laisser la ligne ci-dessous intacte. -->
+<div id="copyr">Generated by <a href="http://www.ldd-soft.be/">© DroPeX v.1.1</a><br></div>
+<script type="text/javascript">
+//<![CDATA[
+for(var i=1;i<=nq;i++){
+	Drag.init(document.getElementById('texte'+i));
+}
+//]]>
+</script>
+<div id="player"></div>
+
+
+</body></html>
