@@ -11,14 +11,15 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Vous avez dit : fraternité ?.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Vous avez dit : fraternité ?" startnode="1" creator="Twine" creator-version="2.3.15" ifid="78C82CB8-57F6-430F-9590-332E04DF1D41" zoom="1" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="porte" color="red"></tw-tag>,<tw-tag name="clé" color="orange"></tw-tag><tw-passagedata pid="1" name="Vous avez dit « Fraternité » ?" tags="" position="412,300" size="100,100">(set: _reponse to &quot;&quot;)
 (set: $ressources to 0)
-(set: $voirParcheminDuCrocodile to 0)
+(set: $voirLeParcheminDuCrocodile to 0)
 (set: $voirLeParcheminDuRapace to 0)
 (set: $voirLaSerrureRouge to 0)
 (set: $serrureRougeOuverte to 0)
 (set: $voirLaCleRouge to 0)
 (set: $enigmeOuest to 0)
+(set: $voirLaPelle to 0)
 
-# La Bibliothèque d&#39;Alexandrie
+### La Bibliothèque d&#39;Alexandrie
 
 |Intro&gt;[À l&#39;entrée, un garde vous barre le passage : il n&#39;a pas l&#39;air commode.
 Vous vous approchez en hésitant. « Le mot de passe ! » dit-il d&#39;une voix de stentor...
@@ -27,11 +28,14 @@ Vous vous approchez en hésitant. « Le mot de passe ! » dit-il d&#39;une voix 
 
 (hidden:)|Saisie&gt;[ 
 Vous vous penchez et murmurez à l&#39;oreille du garde :
-(input-box:2bind _reponse,&quot;=XX=&quot;,1,&quot;Mot en 7 lettres&quot;) 
-(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;=X&quot;)[ (b4r:&quot;solid&quot;)+(b4r-colour:white)[(button:)[ Vérifier ]&lt;Verifier| ]]
+(input-box:bind _reponse,&quot;=XX=&quot;,1,&quot;Mot en 7 lettres&quot;)
+&lt;br&gt;
+(button:)[[ Vérifier ]&lt;Verifier|]
 ]
 
-(hidden:)|Lien_vers_le_vestibule&gt;[ En effet, c&#39;est la bonne réponse. « Vous pouvez entrer », dit le garde. Et il s&#39;écarte pour vous laisser le passage...
+(hidden:)|Lien_vers_le_vestibule&gt;[ En effet, c&#39;est la bonne réponse.
+« Vous pouvez entrer », dit le garde. Et il s&#39;écarte pour vous laisser le passage...
+
 Entrez maintenant dans le  [[vestibule]]...]
 
 
@@ -44,12 +48,23 @@ Entrez maintenant dans le  [[vestibule]]...]
 (if: (lowercase: _reponse) is &quot;famille&quot;)[
 (hide: ?Saisie)
 (show: ?Lien_vers_le_vestibule)
-]
-]
-</tw-passagedata><tw-passagedata pid="2" name="Ma besace" tags="" position="604,100.5" size="100,100">
-## Clés
+]]
+</tw-passagedata><tw-passagedata pid="2" name="Ma besace" tags="" position="604,100.5" size="100,100">(link-undo: &quot;Fermer la besace&quot;) 
 
-(hidden:)[ Clé rouge : (button:)[ Utiliser cette clé]&lt;utiliserLaCleRouge|
+#### Objets
+
+(hidden:)[ * Petite pelle : (button:)[ Examiner cet objet]&lt;examinerLaPelle|
+]&lt;pelle|
+
+(if: $voirLaPelle is 1)[
+(show: ?pelle)
+]
+
+(click: ?examinerLaPelle)[
+(dialog: &quot;Il y a sur le manche, cette étrange inscription : &lt;br&gt;T&lt;br&gt;ANO&lt;br&gt;a&lt;br&gt;P.13.&quot;)
+]
+
+(hidden:)[ * Clé rouge : (button:)[ Utiliser cette clé]&lt;utiliserLaCleRouge|
 ]&lt;cleRouge|
 
 (if: $voirLaCleRouge is 1)[
@@ -61,16 +76,15 @@ Entrez maintenant dans le  [[vestibule]]...]
 (dialog: &quot;La serrure rouge a été déverrouillée&quot;)
 (set: $serrureRougeOuverte to 1)
 (set: $voirLaCleRouge to 0)
-(set: $ressources to $ressources - 1)
+(set: $ressources to it - 1)
 (go-to: &quot;coffret rouge&quot;)
 ](else:)[
 (dialog: &quot;Cette clé n&#39;entre pas dans la serrure.&quot;)
-(go-to: &quot;Ma besace&quot;)
 ]]
  
-## Indices
+#### Indices
 
-(hidden:)[ Parchemin du crocodile : (button:)[ le dérouler pour le lire ]&lt;lireLeParcheminDuCrocodile|
+(hidden:)[ * Parchemin du crocodile : (button:)[ le dérouler pour le lire ]&lt;lireLeParcheminDuCrocodile|
 ]&lt;parcheminDuCrocodile|
 
 (if: $voirLeParcheminDuCrocodile is 1)[
@@ -78,12 +92,11 @@ Entrez maintenant dans le  [[vestibule]]...]
 ]
 
 (click: ?lireLeParcheminDuCrocodile)[
-(dialog: &quot;Ce parchemin est usé. Il tombe en poussière... Quelle malchance ! Notez les informations qu&#39;il contient, c&#39;est plus prudent.&quot;)
-(hide: ?parcheminDuCrocodile)
-(go-to: &quot;Parchemin du crocodile&quot;)
+(dialog: &quot;Ce parchemin est usé. Il tombe en poussière... Notez les informations qu&#39;il contient, c&#39;est plus prudent.&quot;)
+(go-to: &quot;parchemin du crocodile&quot;)
 ]
 
-(hidden:)[ Parchemin du rapace : (button:)[ le dérouler pour le lire ]&lt;lireLeParcheminDuRapace|
+(hidden:)[ * Parchemin du rapace : (button:)[ le dérouler pour le lire ]&lt;lireLeParcheminDuRapace|
 ]&lt;parcheminDuRapace|
 
 (if: $voirLeParcheminDuRapace is 1)[
@@ -95,10 +108,9 @@ Entrez maintenant dans le  [[vestibule]]...]
 ]</tw-passagedata><tw-passagedata pid="3" name="En-tête" tags="header" position="763,201.5" size="100,100">(align:&quot;==&gt;&quot;)+(box:&quot;=X&quot;)[ [[Ma besace]] ( $ressources )
 ---
 ]
-
 </tw-passagedata><tw-passagedata pid="4" name="vestibule" tags="" position="413,449" size="100,100">(set: _orientation to &quot;&quot;)
 
-# Vestibule
+### Vestibule
 
 (hidden:)[ Vous entendez qu&#39;on referme la porte principale derrière vous.
 Le vestibule donne sur trois nouvelles portes monumentales : à l&#39;ouest, au nord et à l&#39;est. Elles sont identiques, ornées avec de grands clous de cuivre et des têtes léonines en guise de poignées. Rien ne vous permet de les distinguer.
@@ -119,7 +131,7 @@ Dirigez-vous vers la porte, côté (dropdown: 2bind _orientation,&quot;sud&quot;
 (show: ?intro)
 ]</tw-passagedata><tw-passagedata pid="5" name="Galerie ouest" tags="" position="983,160.5" size="100,100">
 
-# Galerie ouest
+### Galerie ouest
 
 [ Une grande galerie s&#39;étend devant vous. Sur un étal, à votre gauche, vous apercevez trois boîtes en bois polychrome.
 
@@ -160,7 +172,7 @@ le (t8n-arrive:&quot;fade-down&quot;)(link-goto:&quot;chacal&quot;,&quot;chacal&
 (click: ?resoudre)[
 (go-to: &quot;resoudre enigme ouest&quot;)
 ]</tw-passagedata><tw-passagedata pid="6" name="Galerie nord" tags="" position="1099,161.5" size="100,100">
-# Galerie nord
+### Galerie nord
 
 Cette galerie est ornée d&#39;un grand [[tableau]] du maître Bartolomeo Manfredi. On y voit un homme qui en frappe un autre qui est à terre...
 
@@ -169,11 +181,36 @@ La victime implore le meurtrier... Mais celui-ci est animé par une grande colè
 Au pied du tableau, vous apercevez un [[coffret rouge]].
 
 Retourner dans le [[vestibule]]...</tw-passagedata><tw-passagedata pid="7" name="Galerie est" tags="" position="1460,161.5" size="100,100">
-# Galerie est
+### Galerie est
 
-(à terminer)</tw-passagedata><tw-passagedata pid="8" name="crocodile" tags="" position="980,394.5" size="100,100">
+[ Cette galerie est vaste et soutenue par des colonnes doriques. En vous déplaçant, il vous semble apercevoir une fillette avec une petite pelle... Elle s&#39;immobilise et vous regarde avec défiance.
 
-# Dans le ventre du crocodile
+Que voulez-vous faire ?
+
+=|=
+[Parler à la fillette]&lt;parler|
+=|=
+[Retourner dans le vestibule]&lt;retourner|
+|==|
+ 
+]&lt;premier|
+
+(hidden:)[ Vous apercevez un petit tertre. En vous approchant, vous découvrez que la fillette a commencé à tracer des [[lettres dans le sable]]... ]&lt;second|
+
+(click: ?retourner)[
+(go-to: &quot;vestibule&quot;)
+]
+
+(click: ?parler)[
+(go-to: &quot;dialogue&quot;)
+]
+
+(if: $voirLaPelle is 1)[
+(hide: ?premier)
+(show: ?second)
+]</tw-passagedata><tw-passagedata pid="8" name="crocodile" tags="" position="980,394.5" size="100,100">
+
+### Dans le ventre du crocodile
 
 (if: visits is 1)[
 Au fond de la boîte, vous découvrez un [parchemin]&lt;parchemin|...
@@ -192,7 +229,7 @@ Cette boîte est vide. [La refermer]&lt;refermer|.
 (go-to: &quot;Galerie ouest&quot;)
 ]
 </tw-passagedata><tw-passagedata pid="9" name="rapace" tags="" position="982,506.5" size="100,100">
-# Dans le ventre du rapace
+### Dans le ventre du rapace
 
 (if: visits is 1)[
 Au fond de la boîte, vous découvrez un [parchemin]&lt;parchemin|...
@@ -211,7 +248,7 @@ Cette boîte est vide. [La refermer]&lt;refermer|.
 (go-to: &quot;Galerie ouest&quot;)
 ]
 </tw-passagedata><tw-passagedata pid="10" name="chacal" tags="" position="983,277.5" size="100,100">
-# Dans le ventre du chacal
+### Dans le ventre du chacal
 
 (if: visits is 1)[
 Au fond de la boîte, vous découvrez une [clé rouge]&lt;cle|...
@@ -232,7 +269,7 @@ Cette boîte est vide. [La refermer]&lt;refermer|.
 </tw-passagedata><tw-passagedata pid="11" name="parchemin du rapace" tags="" position="858,509.5" size="100,100">
 Hum... cela ressemble à du grec... Sans doute un manuscrit datant de la dynastie des Ptolémées...
 
-« (text-style:&quot;mark&quot;,&quot;emboss&quot;,&quot;condense&quot;,&quot;upside-down&quot;)[C EST SETH QUI M A TUE] »
+« (text-style:&quot;mark&quot;,&quot;emboss&quot;,&quot;condense&quot;,&quot;upside-down&quot;)[ C EST SETH QUI M A TUE ] »
 
 [Remettre le manuscrit dans la besace.]&lt;remettre|
 
@@ -241,10 +278,11 @@ Hum... cela ressemble à du grec... Sans doute un manuscrit datant de la dynasti
 ]</tw-passagedata><tw-passagedata pid="12" name="resoudre enigme ouest" tags="" position="980,616.5" size="100,100">(set: _victime to &quot;&quot;)
 (set: _assassin to &quot;&quot;)
 
-# Enigme de la porte ouest
+### Enigme de la porte ouest
 
-Moi, (input-box:2bind _victime,&quot;=XX=&quot;,1)&lt;br&gt;je déclare que mon frère&lt;br&gt; (input-box:2bind _assassin,&quot;=XX=&quot;,1) &lt;br&gt;m&#39;a tué, puis qu&#39;il a découpé mon corps et qu&#39;il en a dispersé les morceaux aux confins du monde.
-(align:&quot;==&gt;&quot;)+(box:&quot;=X&quot;)[Résoudre l&#39;énigme]&lt;resoudre|
+Moi, (input-box:bind _victime,&quot;=XX=&quot;,1)&lt;br&gt;je déclare que mon frère&lt;br&gt; (input-box:bind _assassin,&quot;=XX=&quot;,1) &lt;br&gt;m&#39;a tué, puis qu&#39;il a découpé mon corps et qu&#39;il en a dispersé les morceaux aux confins du monde.
+
+(button:)[ [Résoudre l&#39;énigme]&lt;resoudre| ]
 
 (click: ?resoudre)[
 (if: (lowercase: _victime) is &quot;osiris&quot; and (lowercase: _assassin) is &quot;seth&quot;)[
@@ -254,7 +292,7 @@ Moi, (input-box:2bind _victime,&quot;=XX=&quot;,1)&lt;br&gt;je déclare que mon 
 ](else:)[
 (dialog: &quot;Désolé ! Vous n&#39;avez pas encore résolu cette énigme. Peut-être pourriez-vous vous aider des indices dont vous disposez dans votre besace...&quot;)
 (go-to: &quot;resoudre enigme ouest&quot;)
-]]</tw-passagedata><tw-passagedata pid="13" name="Parchemin du crocodile" tags="" position="860,395.5" size="100,100">
+]]</tw-passagedata><tw-passagedata pid="13" name="parchemin du crocodile" tags="" position="860,395.5" size="100,100">
 
 (bg:grey)[
  (align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[
@@ -266,9 +304,9 @@ Moi, (input-box:2bind _victime,&quot;=XX=&quot;,1)&lt;br&gt;je déclare que mon 
 (click: ?ranger)[
 (set: $voirLeParcheminDuCrocodile to 0)
 (set: $ressources to it - 1)
-(go-to: &quot;crocodile&quot;)
+(go-to: &quot;Galerie ouest&quot;)
 ]</tw-passagedata><tw-passagedata pid="14" name="coffret rouge" tags="" position="1099,311.5" size="100,100">
-(hidden:)[ # Coffret rouge
+(hidden:)[ ### Coffret rouge
 
 Ce coffret contient un message. [ Lire ce message ]&lt;lire|
 ]&lt;coffre|
@@ -288,8 +326,6 @@ Ce coffret contient un message. [ Lire ce message ]&lt;lire|
 (click: ?lire)[
 (go-to: &quot;message du coffret rouge&quot;)
 ]</tw-passagedata><tw-passagedata pid="15" name="message du coffret rouge" tags="" position="1098,423.5" size="100,100">
-# Message du coffret rouge
-
 (align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[=
 (bg:grey)[211 ECK BIB P26-27]
 
@@ -299,17 +335,18 @@ Ce coffret contient un message. [ Lire ce message ]&lt;lire|
 (go-to: &quot;Galerie nord&quot;)
 ]</tw-passagedata><tw-passagedata pid="16" name="tableau" tags="" position="1219,310.5" size="100,100">(set: _reponse to &quot;&quot;)
 
-# Au dos du tableau
+### Au dos du tableau
 
 Un passage secret ! Mais il nous faut saisir un mot de passe...
 
 Au dessus du linteau, on peut lire :
 
-(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[(bg:grey)[« JE SUIS COMME LE SOUFFLE »]]
+(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X=&quot;)[(bg:grey)[« JE SUIS COMME LE SOUFFLE. »]]
 
 Essayons de saisir un mot...
-(input-box:2bind _reponse,&quot;=XX=&quot;)
-[ Vérifier ]&lt;verifier|
+(input-box:bind _reponse,&quot;=XX=&quot;,1)
+
+(button:)[ [ Vérifier ]&lt;verifier| ]
 
 (click: ?verifier)[
 (if: (lowercase: _reponse) is &quot;abel&quot;)[
@@ -320,9 +357,95 @@ Essayons de saisir un mot...
 (go-to: &quot;Galerie nord&quot;)
 ]]
 </tw-passagedata><tw-passagedata pid="17" name="passage secret" tags="" position="1330,311.5" size="100,100">
-# Passage secret
+### Passage secret
 
-(à terminer)</tw-passagedata></tw-storydata>
+[ Ce passage est étrange. Il comporte douze colonnes, six de chaque côté. Pour onze d&#39;entre elles, le chapiteau est orné d&#39;une étoile, mais la douzième, c&#39;est un soleil rayonnant qui en orne le sommet.
+
+Au fond du corridor faiblement éclairé par des torches, on aperçoit une statuette ornée d&#39;une belle tunique, mais celle-ci est tachée du sang d&#39;un bouc.
+
+Au pied de la statue, on peut voir les débris d&#39;une tablette d&#39;argile gravée en cunéiformes babyloniens... Vous essayez d&#39;en obtenir la [[traduction]] grâce à vos lunettes à vision augmentée...]&lt;premier|
+
+
+(if: visits &gt; 1)[
+(hide: ?premier)
+(show: ?second)
+]
+
+[ En vous retournant, vous constatez que le passage s&#39;est refermé. Pour en sortir, vous devez [résoudre l&#39;énigme de la tablette]&lt;resoudre|... ]&lt;second|
+
+(click: ?resoudre)[
+(go-to: &quot;enigme de la tablette&quot;)
+]</tw-passagedata><tw-passagedata pid="18" name="traduction" tags="" position="1330,461.5" size="100,100">
+(bg:(gradient: 0, 0,#ffffff,0.7723,#e68019,1,#ffffff))[  JE S.IS J..E...   .ES ..ÈRES JALO.X M&#39;O.T V.NDU CO.M. .S.LAVE.  ]
+
+[Reposer les fragments de la tablette]&lt;reposer|
+
+(click: ?reposer)[
+(go-to: &quot;dos fragment&quot;)
+]
+
+</tw-passagedata><tw-passagedata pid="19" name="dos fragment" tags="" position="1442,463.5" size="100,100">
+Au dos d&#39;un des fragments, vous apercevez cette autre inscription. Est-ce le fabricant de la tablette qui l&#39;a ajouté là ?
+
+(bg:(gradient: 0, 0,#ffffff,0.7723,#e68019,1,#ffffff))[  211 ECK  ]
+
+[Reposer ce fragment]&lt;reposer|
+
+(click: ?reposer)[
+(go-to: &quot;passage secret&quot;)
+]
+</tw-passagedata><tw-passagedata pid="20" name="enigme de la tablette" tags="" position="1445,575.5" size="100,100">(set: _reponse to &quot;&quot;)
+
+### Énigme de la tablette
+
+Il faut suppléer les lettres manquantes...
+
+(input-box:bind _reponse,&quot;=XX=&quot;,&quot;JE S.IS J..E...   .ES ..ÈRES JALO.X M&#39;O.T V.NDU CO.M. .S.LAVE.&quot;)
+[Vérifier]&lt;verifier|
+
+(click: ?verifier)[
+(if: (uppercase: _reponse) is &quot;JE SUIS JOSEPH.   MES FRÈRES JALOUX M&#39;ONT VENDU COMME ESCLAVE.&quot;)[
+(dialog: &quot;Bravo ! c&#39;est la bonne réponse. Prenez en note dans votre carnet de voyage. Le passage est ouvert. Retournons dans la Galerie nord.&quot;)
+(go-to: &quot;Galerie nord&quot;)
+](else:)[
+(dialog: &quot;Hum! ce n&#39;est visiblement pas la bonne réponse. Peut-être que l&#39;inscription au dos du tesson nous fournira un indice.&quot;)
+(go-to: &quot;enigme de la tablette&quot;)
+]]
+
+</tw-passagedata><tw-passagedata pid="21" name="dialogue" tags="" position="1572,162.5" size="100,100">
+&amp;mdash; Mon oncle, il veut pas que je l&#39;enterre. Mais moi, je l&#39;ai fait, en cachette... Chut! il ne faut pas le répéter, sinon mon oncle me tuera.
+&amp;mdash; Qui as-tu enterrée ? demandez-vous, histoire de vous intéresser à a conversation.
+&amp;mdash; Chut! il ne faut pas le dire... Mes deux frères, ils se sont battus pour le trône, mais il n&#39;y avait qu&#39;un seul trône... Et ils sont morts, tous les deux, mais mon oncle a voulu faire de l&#39;un d&#39;eux un héros, et de l&#39;autre, un traître... Mais moi, je les aime bien tous les deux, ce sont mes frères. Je l&#39;ai enterré toute seule... Ma sœur Ismène, elle avait trop peur, elle est restée avec nounou, au palais.
+Je dois rentrer, sinon nounou va me gronder...
+
+Elle disparaît dans l&#39;obscurité, en oubliant sa petite [pelle]&lt;ramasser|.
+
+(click: ?ramasser)[
+(set: $voirLaPelle to 1)
+(set: $ressources to it + 1)
+(dialog: &quot;La petite pelle a été ajoutée à votre besace.&quot;)
+(go-to: &quot;Galerie est&quot;)
+]</tw-passagedata><tw-passagedata pid="22" name="lettres dans le sable" tags="" position="1460,311.5" size="100,100">(set: _reponse to &quot;&quot;)
+
+### L&#39;inscription dans le sable
+
+Vous comprenez qu&#39;elle a voulu inscrire le nom de son frère, le //vaurien//, celui auquel son oncle a interdit toute sépulture. Vous devriez pouvoir achever cette inscription pour aider la petite fille...
+
+(input-box:bind _reponse,&quot;=XX=&quot;,1,&quot;PO&quot;)
+
+(button:)[[ Vérifier ]&lt;verifier|]
+
+(click: ?verifier)[
+(if: (lowercase: _reponse) is &quot;polynice&quot;)[
+(dialog: &quot;Bravo ! Encore une énigme de résolue. Pensez à la consigner dans votre carnet de voyage.&quot;)
+(go-to: &quot;vestibule&quot;)
+](else:)[
+(dialog: &quot;Hum! la terre est peut-être trop dure. Vous devriez vous servir de la petite pelle.&quot;)
+]]
+
+</tw-passagedata><tw-passagedata pid="23" name="barre" tags="footer" position="686,401.5" size="100,100">
+(append:?sidebar)[(icon-fullscreen:)(icon-restart:)]\
+(enchant:?link,(t8n-depart:&quot;dissolve&quot;)+(t8n-time:0.4s))</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
